@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck2lmp2tjmpxr"]
+
+[ext_resource type="Script" path="res://scenes/DictionaryButton.gd" id="1_xqny6"]
+[ext_resource type="Texture2D" uid="uid://bo3i888fuc2rk" path="res://assets/images/gui/dictionary/pin 1.PNG" id="2_dcptk"]
+
+[node name="DictionaryButton" type="Button"]
+self_modulate = Color(0.913725, 0.913725, 0.913725, 0)
+text = "WORD.................................TRANSLATION"
+script = ExtResource("1_xqny6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "word                         translation"
+
+[node name="pin_TextureRect" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = -3.0
+offset_right = 47.0
+offset_bottom = 27.0
+texture_normal = ExtResource("2_dcptk")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="mouse_entered" from="pin_TextureRect" to="." method="_on_pin_texture_rect_mouse_entered"]
+[connection signal="mouse_exited" from="pin_TextureRect" to="." method="_on_pin_texture_rect_mouse_exited"]
+[connection signal="pressed" from="pin_TextureRect" to="." method="_on_pin_texture_rect_pressed"]

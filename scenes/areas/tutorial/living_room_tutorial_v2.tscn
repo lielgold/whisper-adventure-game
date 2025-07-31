@@ -1,0 +1,348 @@
+[gd_scene load_steps=16 format=3 uid="uid://hb1unlpb25o2"]
+
+[ext_resource type="PackedScene" uid="uid://ih7bydowke4l" path="res://scenes/game_screen.tscn" id="1_we8kx"]
+[ext_resource type="Texture2D" uid="uid://cpgx3n322bsvi" path="res://assets/maps/sun/sun background.PNG" id="2_himx7"]
+[ext_resource type="Texture2D" uid="uid://slk2udttanfb" path="res://assets/maps/sun/orange circle.PNG" id="3_id2lf"]
+[ext_resource type="Texture2D" uid="uid://b2ckluruc56r1" path="res://assets/maps/areas/tutorial/ceiling_cut.png" id="5_t8kqt"]
+[ext_resource type="Texture2D" uid="uid://8yplwbk7h4ie" path="res://assets/maps/areas/tutorial/floor_cut.png" id="6_x5u6k"]
+[ext_resource type="PackedScene" uid="uid://ccqny4slmrb2k" path="res://scenes/voice_button.tscn" id="7_k0i55"]
+[ext_resource type="Texture2D" uid="uid://be883lgjyrcb" path="res://assets/maps/areas/tutorial/wall_cut.png" id="7_lkohq"]
+[ext_resource type="Texture2D" uid="uid://dbwixnhk1hbs2" path="res://assets/maps/areas/tutorial/window_cut.png" id="8_301nc"]
+[ext_resource type="Texture2D" uid="uid://c7l8eay08j5gs" path="res://assets/maps/areas/tutorial/living_room_background_cutout.png" id="9_dxy5u"]
+[ext_resource type="Texture2D" uid="uid://brs24ixgu3qs1" path="res://assets/maps/living room/open the something.PNG" id="13_0ix14"]
+[ext_resource type="Script" path="res://assets/maps/living room/living_room_tutorial_specific_code.gd" id="16_wkk4r"]
+
+[sub_resource type="Animation" id="Animation_vcb5w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ceiling:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ceiling:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("floor:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("floor:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("wall:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("wall:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("window:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("window:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ci7nr"]
+_data = {
+"RESET": SubResource("Animation_vcb5w")
+}
+
+[sub_resource type="Animation" id="Animation_hruw5"]
+length = 1.2
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("living_room_specific_code")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_change_level_after_room_fades_away"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("living room clean:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("talk to something:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kn33p"]
+_data = {
+"room fade away": SubResource("Animation_hruw5")
+}
+
+[node name="living room" instance=ExtResource("1_we8kx")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="sun background" type="TextureRect" parent="." index="0"]
+visible = false
+layout_mode = 0
+offset_right = 1342.0
+offset_bottom = 766.0
+texture = ExtResource("2_himx7")
+expand_mode = 1
+
+[node name="sun inner circle" type="TextureRect" parent="." index="1"]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 303.0
+offset_right = 759.0
+offset_bottom = 474.0
+texture = ExtResource("3_id2lf")
+expand_mode = 1
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_ci7nr"),
+"living room": SubResource("AnimationLibrary_kn33p")
+}
+
+[node name="ceiling" parent="." index="3" instance=ExtResource("7_k0i55")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -577.0
+offset_right = 601.0
+offset_bottom = 201.0
+grow_horizontal = 2
+texture_normal = ExtResource("5_t8kqt")
+ignore_texture_size = false
+dictionary_word = "ceiling"
+sound_to_play_on_click = "res://assets/maps/living room/audio/ceiling.wav"
+
+[node name="trigger_count_progress_bar" parent="ceiling" index="0"]
+visible = true
+offset_left = -164.0
+offset_top = -18.5
+offset_right = -124.0
+offset_bottom = 21.5
+
+[node name="recording_timer" parent="ceiling" index="1"]
+visible = true
+
+[node name="trigger_animations" parent="ceiling" index="2"]
+translation_key = "open the ceiling"
+do_fade_away_animation = true
+
+[node name="floor" parent="." index="4" instance=ExtResource("7_k0i55")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -161.0
+offset_right = 1344.0
+offset_bottom = 0.0
+grow_vertical = 0
+texture_normal = ExtResource("6_x5u6k")
+ignore_texture_size = false
+dictionary_word = "floor"
+sound_to_play_on_click = "res://assets/maps/living room/audio/floor.wav"
+
+[node name="trigger_count_progress_bar" parent="floor" index="0"]
+visible = true
+offset_left = -55.0
+offset_top = -28.5
+offset_right = -15.0
+offset_bottom = 11.5
+
+[node name="recording_timer" parent="floor" index="1"]
+visible = true
+offset_left = 61.0
+offset_top = -25.5
+offset_right = 163.0
+offset_bottom = 14.5
+
+[node name="trigger_animations" parent="floor" index="2"]
+translation_key = "open the floor"
+do_fade_away_animation = true
+
+[node name="InteractivityParticles2D" parent="floor" index="4"]
+position = Vector2(674, 60)
+
+[node name="wall" parent="." index="5" instance=ExtResource("7_k0i55")]
+layout_mode = 1
+offset_right = 587.0
+offset_bottom = 675.0
+texture_normal = ExtResource("7_lkohq")
+ignore_texture_size = false
+dictionary_word = "wall"
+sound_to_play_on_click = "res://assets/maps/living room/audio/wall.wav"
+
+[node name="trigger_count_progress_bar" parent="wall" index="0"]
+visible = true
+offset_left = -42.5
+offset_top = -38.5
+offset_right = -2.5
+offset_bottom = 1.5
+
+[node name="recording_timer" parent="wall" index="1"]
+visible = true
+offset_left = 65.5
+offset_top = -31.5
+offset_right = 167.5
+offset_bottom = 8.5
+
+[node name="trigger_animations" parent="wall" index="2"]
+translation_key = "open the wall"
+do_fade_away_animation = true
+
+[node name="InteractivityParticles2D" parent="wall" index="4"]
+position = Vector2(450, 249)
+
+[node name="window" parent="." index="6" instance=ExtResource("7_k0i55")]
+layout_mode = 0
+offset_left = 737.0
+offset_top = 227.0
+offset_right = 997.0
+offset_bottom = 476.0
+texture_normal = ExtResource("8_301nc")
+ignore_texture_size = false
+dictionary_word = "window"
+sound_to_play_on_click = "res://assets/maps/living room/audio/window.wav"
+
+[node name="trigger_count_progress_bar" parent="window" index="0"]
+visible = true
+offset_left = -92.0
+offset_top = 47.5
+offset_right = -52.0
+offset_bottom = 87.5
+
+[node name="recording_timer" parent="window" index="1"]
+visible = true
+offset_left = 1.0
+offset_top = 48.5
+offset_right = 103.0
+offset_bottom = 88.5
+
+[node name="trigger_animations" parent="window" index="2"]
+translation_key = "open the window"
+do_fade_away_animation = true
+
+[node name="living room clean" type="TextureRect" parent="." index="7"]
+layout_mode = 1
+offset_right = 1344.0
+offset_bottom = 710.0
+mouse_filter = 2
+texture = ExtResource("9_dxy5u")
+
+[node name="talk to something" parent="." index="8" instance=ExtResource("7_k0i55")]
+visible = false
+layout_mode = 0
+offset_left = 52.0
+offset_top = 314.0
+offset_right = 340.0
+offset_bottom = 453.0
+texture_normal = ExtResource("13_0ix14")
+dictionary_word = "open the ----"
+sound_to_play_on_click = "res://assets/maps/living room/audio/open the something.wav"
+
+[node name="living_room_specific_code" type="Node" parent="." index="9"]
+script = ExtResource("16_wkk4r")
+path_to_new_screen_tscn = "res://scenes/areas/tutorial/sun.tscn"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="living_room_specific_code" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="ceiling/AnimationPlayer" to="living_room_specific_code" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="floor/AnimationPlayer" to="living_room_specific_code" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="wall/AnimationPlayer" to="living_room_specific_code" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="window/AnimationPlayer" to="living_room_specific_code" method="_on_animation_player_animation_finished"]
+
+[editable path="ceiling"]
+[editable path="floor"]
+[editable path="wall"]
+[editable path="window"]

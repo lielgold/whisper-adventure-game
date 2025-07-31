@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dnsu43cmintxx"
+path="res://.godot/imported/first you need to open the sun and then you can talk to it.wav-d546a7e0298e379d3aa3cb14fb28268d.sample"
+
+[deps]
+
+source_file="res://assets/maps/sun/first you need to open the sun and then you can talk to it.wav"
+dest_files=["res://.godot/imported/first you need to open the sun and then you can talk to it.wav-d546a7e0298e379d3aa3cb14fb28268d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

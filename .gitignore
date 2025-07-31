@@ -1,0 +1,6 @@
+# Godot 4+ specific ignores
+.godot/
+addons/godot_whisper/models/ggml-base.bin
+addons/godot_whisper/models/ggml-small.bin
+addons/godot_whisper/models/ggml-base.en.bin
+

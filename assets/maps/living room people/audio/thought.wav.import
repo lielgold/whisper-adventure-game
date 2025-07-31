@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://mgaq0ojohwqp"
+path="res://.godot/imported/thought.wav-5496755a85d26e7f79dfd1b38f6cb208.sample"
+
+[deps]
+
+source_file="res://assets/maps/living room people/audio/thought.wav"
+dest_files=["res://.godot/imported/thought.wav-5496755a85d26e7f79dfd1b38f6cb208.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

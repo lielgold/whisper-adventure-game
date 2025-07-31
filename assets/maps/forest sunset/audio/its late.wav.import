@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bt7e5x43tqxma"
+path="res://.godot/imported/its late.wav-f95e07a0549dc7520d558b1b1dce4f02.sample"
+
+[deps]
+
+source_file="res://assets/maps/forest sunset/audio/its late.wav"
+dest_files=["res://.godot/imported/its late.wav-f95e07a0549dc7520d558b1b1dce4f02.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cntt2lfly5m6i"
+path="res://.godot/imported/play with parents.wav-5f47117f35356b93bc239a705aaf3acb.sample"
+
+[deps]
+
+source_file="res://assets/maps/living room people/audio/play with parents.wav"
+dest_files=["res://.godot/imported/play with parents.wav-5f47117f35356b93bc239a705aaf3acb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

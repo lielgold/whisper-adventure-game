@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bf44im0eynh0h"
+path="res://.godot/imported/lie to the bird.wav-a5b916a22bf5d2210c25b3b1306778cb.sample"
+
+[deps]
+
+source_file="res://assets/maps/outside window/audio/lie to the bird.wav"
+dest_files=["res://.godot/imported/lie to the bird.wav-a5b916a22bf5d2210c25b3b1306778cb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

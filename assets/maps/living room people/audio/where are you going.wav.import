@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bxjgr0jcjaw0l"
+path="res://.godot/imported/where are you going.wav-2a5c9e13d6f5b276952dc8d1054ae357.sample"
+
+[deps]
+
+source_file="res://assets/maps/living room people/audio/where are you going.wav"
+dest_files=["res://.godot/imported/where are you going.wav-2a5c9e13d6f5b276952dc8d1054ae357.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

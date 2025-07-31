@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://jgc7ndhovwys"
+path="res://.godot/imported/soccer-ball-kick.wav-af4d9f5e377c42fe3093f49f9773ad37.sample"
+
+[deps]
+
+source_file="res://assets/maps/house front after tutorial/audio/soccer-ball-kick.wav"
+dest_files=["res://.godot/imported/soccer-ball-kick.wav-af4d9f5e377c42fe3093f49f9773ad37.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

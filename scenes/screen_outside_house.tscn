@@ -1,0 +1,152 @@
+[gd_scene load_steps=12 format=3 uid="uid://b4724vanlan3m"]
+
+[ext_resource type="PackedScene" uid="uid://ih7bydowke4l" path="res://scenes/game_screen.tscn" id="1_4if1m"]
+[ext_resource type="Texture2D" uid="uid://dfk63pe2evvl7" path="res://assets/maps/house front/inside house.PNG" id="2_wev6j"]
+[ext_resource type="Texture2D" uid="uid://de770l7ih6us5" path="res://assets/maps/house front/Background fixed.PNG" id="3_hboyc"]
+[ext_resource type="PackedScene" uid="uid://ccqny4slmrb2k" path="res://scenes/voice_button.tscn" id="4_bj3xn"]
+[ext_resource type="Texture2D" uid="uid://bocy013hf0v8l" path="res://assets/maps/house front/sign open the door.webp" id="5_33f4l"]
+[ext_resource type="Texture2D" uid="uid://cewikdujfefcr" path="res://assets/maps/house front/door.webp" id="6_rqnjm"]
+[ext_resource type="Texture2D" uid="uid://6itbe3mqd88e" path="res://assets/maps/house front/closed flower.PNG" id="7_j1t08"]
+
+[sub_resource type="Animation" id="Animation_fki14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flower:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_j1t08")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("flower:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VB_door_sign2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wep38"]
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VB_door_sign2/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("fade_in"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_01as3"]
+resource_name = "open the door"
+length = 1.5
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flower/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("fade_in"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3coob"]
+_data = {
+"RESET": SubResource("Animation_fki14"),
+"make_sign_visible": SubResource("Animation_wep38"),
+"open the door": SubResource("Animation_01as3")
+}
+
+[node name="outside_house" instance=ExtResource("1_4if1m")]
+
+[node name="inside house" type="TextureRect" parent="." index="0"]
+layout_mode = 0
+offset_left = 596.0
+offset_top = 302.0
+offset_right = 925.0
+offset_bottom = 681.0
+scale = Vector2(0.809609, 0.809609)
+mouse_filter = 2
+texture = ExtResource("2_wev6j")
+
+[node name="house front" type="TextureRect" parent="." index="1"]
+layout_mode = 0
+offset_right = 1574.0
+offset_bottom = 900.0
+scale = Vector2(0.86263, 0.86263)
+mouse_filter = 2
+texture = ExtResource("3_hboyc")
+
+[node name="VB_door_sign2" parent="." index="2" instance=ExtResource("4_bj3xn")]
+visible = false
+layout_mode = 0
+offset_left = 922.0
+offset_top = 178.0
+offset_right = 1122.0
+offset_bottom = 378.0
+texture_normal = ExtResource("5_33f4l")
+dictionary_word = "open the door"
+sound_to_play_on_click = "res://assets/maps/house front/open the door.wav"
+
+[node name="VB_door" parent="." index="3" instance=ExtResource("4_bj3xn")]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 349.0
+offset_right = 760.0
+offset_bottom = 609.0
+texture_normal = ExtResource("6_rqnjm")
+dictionary_word = "door"
+sound_to_play_on_click = "res://assets/maps/house front/door.wav"
+screen_animation_clicked_on = "make_sign_visible"
+
+[node name="trigger_animations" parent="VB_door" index="2"]
+animation_to_play = "open the door"
+change_to_texture = "res://assets/images/no_texture.png"
+change_to_new_screen = "res://scenes/living_room.tscn"
+
+[node name="flower" parent="." index="4" instance=ExtResource("4_bj3xn")]
+visible = false
+layout_mode = 0
+offset_left = 1056.0
+offset_top = 357.0
+offset_right = 1211.0
+offset_bottom = 764.0
+texture_normal = ExtResource("7_j1t08")
+stretch_mode = 3
+dictionary_word = "flower"
+sound_to_play_on_click = "res://assets/maps/house front/flower.wav"
+
+[node name="trigger_animations" parent="flower" index="2"]
+change_to_texture = "res://assets/maps/house front/open flower.PNG"
+
+[node name="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_3coob")
+}
+
+[editable path="VB_door_sign2"]
+[editable path="VB_door"]
+[editable path="flower"]

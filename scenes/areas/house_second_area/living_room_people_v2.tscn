@@ -1,0 +1,395 @@
+[gd_scene load_steps=23 format=3 uid="uid://xci2db1vookb"]
+
+[ext_resource type="PackedScene" uid="uid://ih7bydowke4l" path="res://scenes/game_screen.tscn" id="1_goh26"]
+[ext_resource type="Texture2D" uid="uid://8fghwnmrr5dm" path="res://assets/maps/areas/tutorial/living_room_background.png" id="2_0ih46"]
+[ext_resource type="Texture2D" uid="uid://dfxbhcq2xj8h8" path="res://assets/maps/living room/half_sun.png" id="3_tre7b"]
+[ext_resource type="Texture2D" uid="uid://bquwjuf8pumi2" path="res://assets/maps/living room people/cat head 1.PNG" id="4_ovs4i"]
+[ext_resource type="Texture2D" uid="uid://b4t84ry0xork7" path="res://assets/maps/living room people/cat head 2.PNG" id="5_bbj7p"]
+[ext_resource type="Texture2D" uid="uid://bv676hm5vt8wb" path="res://assets/maps/living room people/Copy_of_girl_back.png" id="6_s6fgf"]
+[ext_resource type="PackedScene" uid="uid://ccqny4slmrb2k" path="res://scenes/voice_button.tscn" id="7_eh0bu"]
+[ext_resource type="Texture2D" uid="uid://bhxey1s87id2a" path="res://assets/maps/living room people/girl_front.png" id="8_bg8bl"]
+[ext_resource type="Script" path="res://scenes/trigger_text.gd" id="9_ts6jh"]
+[ext_resource type="Texture2D" uid="uid://dbwixnhk1hbs2" path="res://assets/maps/areas/tutorial/window_cut.png" id="10_8gaau"]
+[ext_resource type="Texture2D" uid="uid://bpkggsvt3a866" path="res://assets/maps/living room people/door closed.webp Merged.PNG" id="11_5p17q"]
+[ext_resource type="Texture2D" uid="uid://cyotgog4v3p10" path="res://assets/maps/living room people/woman_back_2_fixed.png" id="15_qlsph"]
+[ext_resource type="Texture2D" uid="uid://bxgpfeiw6rcfv" path="res://assets/maps/living room people/woman_thought_bubble.png" id="16_u0g10"]
+[ext_resource type="Script" path="res://assets/maps/living room people/living room people specific code.gd" id="17_mp4wu"]
+
+[sub_resource type="Animation" id="Animation_sspiu"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_6hul8"]
+resource_name = "fade_away"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_op8a4"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_exw7g"]
+_data = {
+"RESET": SubResource("Animation_sspiu"),
+"fade_away": SubResource("Animation_6hul8"),
+"fade_in": SubResource("Animation_op8a4")
+}
+
+[sub_resource type="Animation" id="Animation_vcb5w"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ci7nr"]
+_data = {
+"RESET": SubResource("Animation_vcb5w")
+}
+
+[sub_resource type="Animation" id="Animation_b7wth"]
+length = 12.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5, 4.7, 9.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["res://assets/maps/sun/meow meow meow meow , meow meow !.wav", true],
+"method": &"play_audio"
+}, {
+"args": ["res://assets/maps/sun/meow meow meow meow , meow meow !.wav", true],
+"method": &"play_audio"
+}, {
+"args": ["res://assets/maps/living room people/audio/wow how did you that.wav", false],
+"method": &"play_audio"
+}]
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("girl front/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("fade_in"),
+"times": PackedFloat32Array(7.6)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("girl back:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 8.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprites#cat head 1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 8.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sprites#cat head 2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 8.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("girl front:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 8.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("half sun:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("half sun:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jv3y4"]
+_data = {
+"initial_animation": SubResource("Animation_b7wth")
+}
+
+[node name="living room after tutorial" instance=ExtResource("1_goh26")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="living room background" type="TextureRect" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0ih46")
+expand_mode = 1
+
+[node name="window" parent="." index="1" instance=ExtResource("7_eh0bu")]
+layout_mode = 0
+offset_left = 737.0
+offset_top = 228.0
+offset_right = 997.0
+offset_bottom = 477.0
+texture_normal = ExtResource("10_8gaau")
+ignore_texture_size = false
+stretch_mode = 2
+dictionary_word = "window"
+
+[node name="trigger_animations" parent="window" index="2"]
+translation_key = "open the window"
+change_to_texture = "res://assets/maps/living room/open_window_cut.png"
+change_to_new_screen = "res://scenes/areas/house_second_area/outside window.tscn"
+
+[node name="half sun" type="TextureRect" parent="." index="2"]
+visible = false
+layout_mode = 0
+offset_left = 347.0
+offset_top = 66.0
+offset_right = 1080.0
+offset_bottom = 468.0
+mouse_filter = 2
+texture = ExtResource("3_tre7b")
+
+[node name="sprites#cat head 1" type="TextureRect" parent="." index="3"]
+visible = false
+layout_mode = 0
+offset_left = 624.0
+offset_top = 313.0
+offset_right = 683.0
+offset_bottom = 388.0
+mouse_filter = 2
+texture = ExtResource("4_ovs4i")
+
+[node name="sprites#cat head 2" type="TextureRect" parent="." index="4"]
+visible = false
+layout_mode = 0
+offset_left = 699.0
+offset_top = 172.0
+offset_right = 1147.0
+offset_bottom = 545.0
+mouse_filter = 2
+texture = ExtResource("5_bbj7p")
+
+[node name="girl back" type="TextureRect" parent="." index="5"]
+visible = false
+layout_mode = 0
+offset_left = 676.0
+offset_top = 377.0
+offset_right = 744.0
+offset_bottom = 475.0
+mouse_filter = 2
+texture = ExtResource("6_s6fgf")
+
+[node name="ceiling" parent="." index="6" instance=ExtResource("7_eh0bu")]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 2.0
+offset_right = 1195.0
+offset_bottom = 194.0
+texture_normal = null
+dictionary_word = "ceiling"
+show_usable_animation = false
+
+[node name="wall" parent="." index="7" instance=ExtResource("7_eh0bu")]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 573.0
+offset_bottom = 598.0
+texture_normal = null
+dictionary_word = "wall"
+show_usable_animation = false
+
+[node name="floor" parent="." index="8" instance=ExtResource("7_eh0bu")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 602.0
+offset_right = 1184.0
+offset_bottom = 768.0
+texture_normal = null
+dictionary_word = "floor"
+show_usable_animation = false
+
+[node name="girl front" parent="." index="9" instance=ExtResource("7_eh0bu")]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 664.0
+offset_top = 382.0
+offset_right = 741.0
+offset_bottom = 474.0
+texture_normal = ExtResource("8_bg8bl")
+dictionary_word = "I"
+show_usable_animation = false
+
+[node name="door" parent="." index="10" instance=ExtResource("7_eh0bu")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 498.0
+offset_right = 208.0
+offset_bottom = 852.0
+texture_normal = ExtResource("11_5p17q")
+dictionary_word = "door"
+
+[node name="trigger_animations" parent="door" index="2"]
+translation_key = "open the door"
+play_varied_sound = false
+change_to_texture = "res://assets/maps/living room people/door opened.webp Merged.PNG"
+change_to_new_screen = "res://scenes/areas/house_second_area/outside_house_after_tutorial.tscn"
+
+[node name="woman" parent="." index="11" instance=ExtResource("7_eh0bu")]
+layout_mode = 0
+offset_left = 1050.0
+offset_top = 378.0
+offset_right = 1231.0
+offset_bottom = 881.0
+texture_normal = ExtResource("15_qlsph")
+dictionary_word = "woman"
+
+[node name="trigger_count_progress_bar" parent="woman" index="0"]
+visible = true
+offset_left = -121.5
+offset_top = -44.5
+offset_right = -81.5
+offset_bottom = -4.5
+
+[node name="trigger_animations" parent="woman" index="2"]
+translation_key = "talk to the woman"
+sound_to_play = "res://assets/maps/living room people/audio/do another magic.wav"
+
+[node name="trigger_lie to the woman" type="Node" parent="woman" index="3"]
+script = ExtResource("9_ts6jh")
+translation_key = "lie to the woman"
+sound_to_play = "res://assets/maps/living room people/audio/lie to the woman.wav"
+
+[node name="trigger_play with the woman" type="Node" parent="woman" index="4"]
+script = ExtResource("9_ts6jh")
+translation_key = "play with the woman"
+sound_to_play = "res://assets/maps/living room people/audio/play with the woman.wav"
+
+[node name="trigger_open the woman" type="Node" parent="woman" index="5" node_paths=PackedStringArray("make_node_visible")]
+script = ExtResource("9_ts6jh")
+translation_key = "open the woman"
+sound_to_play = "res://assets/maps/living room people/audio/open the woman.wav"
+make_node_visible = NodePath("../woman thought bubble2")
+
+[node name="AnimationPlayer" parent="woman" index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_exw7g")
+}
+
+[node name="woman thought bubble2" parent="woman" index="8" instance=ExtResource("7_eh0bu")]
+visible = false
+layout_mode = 0
+offset_left = -128.0
+offset_top = -293.0
+offset_right = 197.0
+offset_bottom = -14.0
+texture_normal = ExtResource("16_u0g10")
+dictionary_word = "thought"
+show_usable_animation = false
+
+[node name="screen specific code" type="Node" parent="." index="12"]
+script = ExtResource("17_mp4wu")
+
+[node name="AnimationPlayer" parent="." index="13"]
+libraries = {
+"": SubResource("AnimationLibrary_ci7nr"),
+"living_room": SubResource("AnimationLibrary_jv3y4")
+}
+autoplay = "living_room/initial_animation"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="screen specific code" method="_on_animation_player_animation_finished"]
+
+[editable path="window"]
+[editable path="door"]
+[editable path="woman"]

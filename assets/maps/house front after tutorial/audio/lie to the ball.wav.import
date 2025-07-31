@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dgfsuk3iak5tl"
+path="res://.godot/imported/lie to the ball.wav-8f762a7c9e9b7008911a422d9d4f437d.sample"
+
+[deps]
+
+source_file="res://assets/maps/house front after tutorial/audio/lie to the ball.wav"
+dest_files=["res://.godot/imported/lie to the ball.wav-8f762a7c9e9b7008911a422d9d4f437d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

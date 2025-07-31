@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bc50bn0hm1ean"
+path="res://.godot/imported/door.wav-9e0c447f466c4116d5b4a78c65b407c9.sample"
+
+[deps]
+
+source_file="res://assets/maps/house front/door.wav"
+dest_files=["res://.godot/imported/door.wav-9e0c447f466c4116d5b4a78c65b407c9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

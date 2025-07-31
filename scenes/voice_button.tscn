@@ -1,0 +1,163 @@
+[gd_scene load_steps=16 format=3 uid="uid://ccqny4slmrb2k"]
+
+[ext_resource type="Texture2D" uid="uid://dm4pdrp0oljq8" path="res://assets/images/test_yellow.png" id="1_ikp3a"]
+[ext_resource type="Script" path="res://scripts/VoiceButton.gd" id="2_3t3vf"]
+[ext_resource type="Texture2D" uid="uid://hh54yv2dkcv" path="res://assets/images/gui/progression bar/star under 3.PNG" id="3_rd4ud"]
+[ext_resource type="Texture2D" uid="uid://cqwj68prxtskp" path="res://assets/images/gui/progression bar/star filled 3.PNG" id="4_08dl6"]
+[ext_resource type="Texture2D" uid="uid://ngq0nb2crs2x" path="res://assets/particles/star_white.png" id="5_4s7s5"]
+[ext_resource type="Texture2D" uid="uid://bwacbkesw81da" path="res://assets/images/gui/recording timer/progress bar under.PNG" id="5_x6iwq"]
+[ext_resource type="Texture2D" uid="uid://c22srw1wbdac0" path="res://assets/images/gui/recording timer/progress bar over.PNG" id="6_inp4x"]
+[ext_resource type="Texture2D" uid="uid://dr7tua8v6qhrw" path="res://assets/images/gui/recording timer/progress bar progress.PNG" id="7_4k0xn"]
+[ext_resource type="Texture2D" uid="uid://6vt688x0frab" path="res://assets/images/gui/recording timer/microphone with background.PNG" id="8_cikt7"]
+[ext_resource type="Script" path="res://scenes/trigger_text.gd" id="9_bqhgm"]
+
+[sub_resource type="Animation" id="Animation_rf58e"]
+length = 0.1
+
+[sub_resource type="Animation" id="Animation_6x1yx"]
+resource_name = "fade_away"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tcnt4"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g8a3a"]
+_data = {
+"RESET": SubResource("Animation_rf58e"),
+"fade_away": SubResource("Animation_6x1yx"),
+"fade_in": SubResource("Animation_tcnt4")
+}
+
+[sub_resource type="Gradient" id="Gradient_ppmjl"]
+offsets = PackedFloat32Array(0, 0.241758, 0.489011, 0.725275, 0.868132, 1)
+colors = PackedColorArray(0.544976, 0.995816, 2.31028e-06, 1, 0.939319, 0.926138, 0, 1, 0.300747, 0.511616, 0.999496, 1, 1, 0.227451, 0.152941, 1, 1, 0.494144, 0.850088, 1, 1, 1, 1, 0)
+
+[node name="VoiceButton" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+button_mask = 7
+texture_normal = ExtResource("1_ikp3a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_3t3vf")
+
+[node name="trigger_count_progress_bar" type="TextureProgressBar" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -55.0
+offset_right = 20.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 4.0
+value = 2.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("3_rd4ud")
+texture_progress = ExtResource("4_08dl6")
+
+[node name="recording_timer" type="TextureProgressBar" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -20.0
+offset_right = 51.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+nine_patch_stretch = true
+texture_under = ExtResource("5_x6iwq")
+texture_over = ExtResource("6_inp4x")
+texture_progress = ExtResource("7_4k0xn")
+
+[node name="TextureRect" type="TextureRect" parent="recording_timer"]
+layout_mode = 0
+offset_left = -50.0
+offset_top = -21.0
+offset_right = 6.0
+offset_bottom = 60.0
+rotation = -0.096125
+texture = ExtResource("8_cikt7")
+expand_mode = 3
+
+[node name="trigger_animations" type="Node" parent="."]
+script = ExtResource("9_bqhgm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g8a3a")
+}
+
+[node name="InteractivityParticles2D" type="CPUParticles2D" parent="."]
+amount = 6
+speed_scale = 0.5
+texture = ExtResource("5_4s7s5")
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector2(0, 300)
+orbit_velocity_min = -1.0
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+color_ramp = SubResource("Gradient_ppmjl")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

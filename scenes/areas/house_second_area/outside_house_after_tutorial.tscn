@@ -1,0 +1,479 @@
+[gd_scene load_steps=37 format=3 uid="uid://c2105rg7oqpf3"]
+
+[ext_resource type="PackedScene" uid="uid://ih7bydowke4l" path="res://scenes/game_screen.tscn" id="1_p5dev"]
+[ext_resource type="Texture2D" uid="uid://8fghwnmrr5dm" path="res://assets/maps/areas/tutorial/living_room_background.png" id="2_sscvc"]
+[ext_resource type="Texture2D" uid="uid://de770l7ih6us5" path="res://assets/maps/house front/Background fixed.PNG" id="3_vvfcd"]
+[ext_resource type="PackedScene" uid="uid://ccqny4slmrb2k" path="res://scenes/voice_button.tscn" id="4_wktgc"]
+[ext_resource type="Texture2D" uid="uid://ck7vmwmdaewlh" path="res://assets/maps/house front after tutorial/closed bin.PNG" id="6_fyi5s"]
+[ext_resource type="Texture2D" uid="uid://cewikdujfefcr" path="res://assets/maps/house front/door.webp" id="6_ys8o1"]
+[ext_resource type="Script" path="res://scenes/trigger_text.gd" id="7_ybea0"]
+[ext_resource type="Texture2D" uid="uid://d1qqthrlqpyp4" path="res://assets/maps/house front after tutorial/kid playing with a ball.PNG" id="8_ob5qs"]
+[ext_resource type="Texture2D" uid="uid://bmp4rj4w8meyp" path="res://assets/maps/house front after tutorial/spilled bin.PNG" id="8_qv7pj"]
+[ext_resource type="Texture2D" uid="uid://bnd6dres3jvyd" path="res://assets/maps/house front after tutorial/Copy of sign play with the ball.PNG" id="9_c0qr7"]
+[ext_resource type="Texture2D" uid="uid://c2cpy5bfqofvw" path="res://assets/maps/house front after tutorial/ball.PNG" id="10_rx8dl"]
+[ext_resource type="Texture2D" uid="uid://bkwgqjd5jhutv" path="res://assets/maps/house front after tutorial/move to window outside.PNG" id="11_b7xw8"]
+[ext_resource type="Script" path="res://scenes/change_screen_button.gd" id="12_wv4jj"]
+[ext_resource type="Texture2D" uid="uid://bb816itabbuyw" path="res://assets/maps/house front after tutorial/move to yard.PNG" id="13_fy2y2"]
+[ext_resource type="Texture2D" uid="uid://boh4opml25g3y" path="res://assets/maps/living room people/woman_front_1_fixed.png" id="15_bml4t"]
+[ext_resource type="Texture2D" uid="uid://crm0uexbq5gwi" path="res://assets/maps/house front after tutorial/exclamation_mark.png" id="16_xsaoo"]
+
+[sub_resource type="Animation" id="Animation_8rexy"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_3yrbf"]
+resource_name = "fade_away"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vlsai"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q0nwd"]
+_data = {
+"RESET": SubResource("Animation_8rexy"),
+"fade_away": SubResource("Animation_3yrbf"),
+"fade_in": SubResource("Animation_vlsai")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ki48y"]
+
+[sub_resource type="Animation" id="Animation_dx5i2"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_wgbff"]
+resource_name = "fade_away"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n1bq2"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8j3tv"]
+_data = {
+"RESET": SubResource("Animation_dx5i2"),
+"fade_away": SubResource("Animation_wgbff"),
+"fade_in": SubResource("Animation_n1bq2")
+}
+
+[sub_resource type="Animation" id="Animation_pi3cl"]
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spilled bin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spilled bin:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1.1),
+"transitions": PackedFloat32Array(1, 0.594604),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../woman/exclamation mark:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ksg18"]
+_data = {
+"play with the bin": SubResource("Animation_pi3cl")
+}
+
+[sub_resource type="Animation" id="Animation_qqat1"]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(366, 588), Vector2(-104, 312)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../move to yard:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../move to yard:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(0.258816, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e8jiu"]
+_data = {
+"play with the ball": SubResource("Animation_qqat1")
+}
+
+[sub_resource type="Animation" id="Animation_fki14"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_wep38"]
+
+[sub_resource type="Animation" id="Animation_01as3"]
+resource_name = "open the door"
+length = 1.5
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3coob"]
+_data = {
+"RESET": SubResource("Animation_fki14"),
+"make_sign_visible": SubResource("Animation_wep38"),
+"open the door": SubResource("Animation_01as3")
+}
+
+[sub_resource type="Animation" id="Animation_of7e7"]
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["res://assets/maps/house front after tutorial/audio/do a magic trick with the ball.wav", false],
+"method": &"play_audio"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mbugm"]
+_data = {
+"initial animation": SubResource("Animation_of7e7")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5dntb"]
+
+[node name="house_front_after_tutorial" instance=ExtResource("1_p5dev")]
+
+[node name="inside house" type="TextureRect" parent="." index="0"]
+layout_mode = 0
+offset_left = 414.0
+offset_top = 312.0
+offset_right = 1075.0
+offset_bottom = 690.0
+scale = Vector2(0.809609, 0.809609)
+mouse_filter = 2
+texture = ExtResource("2_sscvc")
+expand_mode = 1
+
+[node name="house front" type="TextureRect" parent="." index="1"]
+layout_mode = 0
+offset_right = 1574.0
+offset_bottom = 900.0
+scale = Vector2(0.86263, 0.86263)
+mouse_filter = 2
+texture = ExtResource("3_vvfcd")
+
+[node name="VB_door" parent="." index="2" instance=ExtResource("4_wktgc")]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 349.0
+offset_right = 760.0
+offset_bottom = 609.0
+texture_normal = ExtResource("6_ys8o1")
+dictionary_word = "door"
+sound_to_play_on_click = "res://assets/maps/house front/door.wav"
+
+[node name="trigger_animations" parent="VB_door" index="2"]
+translation_key = "open the door"
+change_to_texture = "res://assets/images/no_texture.png"
+change_to_new_screen = "res://scenes/areas/house_second_area/living_room_people_v2.tscn"
+
+[node name="AnimationPlayer" parent="VB_door" index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_q0nwd"),
+"local": SubResource("AnimationLibrary_ki48y")
+}
+
+[node name="garbage bin" parent="." index="3" instance=ExtResource("4_wktgc")]
+layout_mode = 0
+offset_left = 828.0
+offset_top = 511.0
+offset_right = 941.0
+offset_bottom = 704.0
+texture_normal = ExtResource("6_fyi5s")
+dictionary_word = "bin"
+sound_to_play_on_click = "res://assets/maps/house front after tutorial/audio/bin.wav"
+
+[node name="trigger_play with the bin" type="Node" parent="garbage bin" index="2"]
+script = ExtResource("7_ybea0")
+translation_key = "play with the bin"
+local_animation_to_play = "local/play with the bin"
+sound_to_play = "res://assets/maps/house front after tutorial/audio/trash-can-falling.wav"
+change_to_texture = "res://assets/images/no_texture.png"
+
+[node name="trigger_talk to the bin" type="Node" parent="garbage bin" index="3"]
+script = ExtResource("7_ybea0")
+translation_key = "talk to the bin"
+sound_to_play = "res://assets/maps/house front after tutorial/audio/talk to the bin.wav"
+
+[node name="trigger_animations" parent="garbage bin" index="4"]
+translation_key = "open the bin"
+change_to_texture = "res://assets/maps/house front after tutorial/open bin.PNG"
+
+[node name="AnimationPlayer" parent="garbage bin" index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_8j3tv"),
+"local": SubResource("AnimationLibrary_ksg18")
+}
+
+[node name="spilled bin" type="TextureRect" parent="garbage bin" index="6"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -132.0
+offset_top = 12.0
+offset_right = 132.0
+offset_bottom = 214.0
+texture = ExtResource("8_qv7pj")
+expand_mode = 1
+
+[node name="kid playing with ball" type="TextureRect" parent="." index="4"]
+layout_mode = 0
+offset_left = 744.0
+offset_top = 70.0
+offset_right = 939.0
+offset_bottom = 318.0
+mouse_filter = 2
+texture = ExtResource("8_ob5qs")
+
+[node name="sign play with the ball" parent="." index="5" instance=ExtResource("4_wktgc")]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 108.0
+offset_right = 1165.0
+offset_bottom = 252.0
+texture_normal = ExtResource("9_c0qr7")
+ignore_texture_size = false
+dictionary_word = "play with the ball"
+sound_to_play_on_click = "res://assets/maps/house front after tutorial/audio/play with the ball.wav"
+pin_this_word = true
+
+[node name="ball" parent="." index="6" instance=ExtResource("4_wktgc")]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 588.0
+offset_right = 423.0
+offset_bottom = 649.0
+texture_normal = ExtResource("10_rx8dl")
+dictionary_word = "ball"
+sound_to_play_on_click = "res://assets/maps/house front after tutorial/audio/ball.wav"
+
+[node name="trigger_lie to the ball" type="Node" parent="ball" index="2"]
+script = ExtResource("7_ybea0")
+translation_key = "lie to the ball"
+sound_to_play = "res://assets/maps/house front after tutorial/audio/lie to the ball.wav"
+disable_trigger = true
+
+[node name="trigger_play with the ball" type="Node" parent="ball" index="3"]
+script = ExtResource("7_ybea0")
+translation_key = "play with the ball"
+local_animation_to_play = "local/play with the ball"
+sound_to_play = "res://assets/maps/house front after tutorial/audio/soccer-ball-kick.wav"
+
+[node name="trigger_open the ball" type="Node" parent="ball" index="4"]
+script = ExtResource("7_ybea0")
+translation_key = "open the ball"
+sound_to_play = "res://assets/maps/house front after tutorial/audio/open the ball2.wav"
+
+[node name="trigger_animations" parent="ball" index="5"]
+translation_key = "talk to the ball"
+sound_to_play = "res://assets/maps/house front after tutorial/audio/talk to the ball.wav"
+
+[node name="AnimationPlayer" parent="ball" index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_8j3tv"),
+"local": SubResource("AnimationLibrary_e8jiu")
+}
+
+[node name="AnimationPlayer" parent="." index="7"]
+libraries = {
+"": SubResource("AnimationLibrary_3coob"),
+"local": SubResource("AnimationLibrary_mbugm"),
+"tutorial": SubResource("AnimationLibrary_5dntb")
+}
+
+[node name="move to window outside" type="TextureButton" parent="." index="8"]
+layout_mode = 0
+offset_left = 1156.0
+offset_top = 292.0
+offset_right = 1333.0
+offset_bottom = 470.0
+texture_normal = ExtResource("11_b7xw8")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("12_wv4jj")
+path_to_new_screen_tscn = "res://scenes/areas/house_second_area/outside window.tscn"
+
+[node name="move to yard" type="TextureButton" parent="." index="9"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 292.0
+offset_right = 197.0
+offset_bottom = 470.0
+texture_normal = ExtResource("13_fy2y2")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("12_wv4jj")
+path_to_new_screen_tscn = "res://scenes/areas/house_second_area/house yard.tscn"
+
+[node name="woman" parent="." index="10" instance=ExtResource("4_wktgc")]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 361.0
+offset_right = 627.0
+offset_bottom = 680.0
+texture_normal = ExtResource("15_bml4t")
+dictionary_word = "woman"
+show_usable_animation = false
+
+[node name="exclamation mark" type="TextureRect" parent="woman" index="5"]
+visible = false
+layout_mode = 0
+offset_left = 28.0
+offset_top = -105.0
+offset_right = 71.0
+offset_bottom = -10.0
+mouse_filter = 2
+texture = ExtResource("16_xsaoo")
+expand_mode = 1
+
+[connection signal="pressed" from="move to window outside" to="move to window outside" method="change_to_new_screen"]
+[connection signal="pressed" from="move to yard" to="move to yard" method="change_to_new_screen"]
+
+[editable path="VB_door"]
+[editable path="garbage bin"]
+[editable path="ball"]

@@ -1,0 +1,100 @@
+[gd_scene load_steps=11 format=3 uid="uid://w3g1sjt4i6ia"]
+
+[ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_nqtfu"]
+[ext_resource type="Script" path="res://samples/godot_whisper/sample_setup.gd" id="2_po3yl"]
+[ext_resource type="AudioStream" uid="uid://cuybt83bwegoq" path="res://samples/godot_whisper/jfk.wav" id="3_b7mu4"]
+[ext_resource type="Script" path="res://samples/godot_whisper/test_display.gd" id="4_r8b1x"]
+[ext_resource type="Script" path="res://samples/godot_whisper/StartButton.gd" id="5_lgj5c"]
+[ext_resource type="Script" path="res://samples/godot_whisper/enable_mic.gd" id="6_wgegh"]
+[ext_resource type="WhisperResource" path="res://addons/godot_whisper/models/gglm-tiny.en.bin" id="7_usfh7"]
+[ext_resource type="Script" path="res://addons/godot_whisper/capture_stream_to_text.gd" id="8_ryfhl"]
+[ext_resource type="Texture2D" uid="uid://dm4pdrp0oljq8" path="res://assets/images/test_button.png" id="9_7ff53"]
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_rhq81"]
+
+[node name="game_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nqtfu")
+
+[node name="CaptureStreamToText" type="VBoxContainer" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -219.5
+offset_right = 200.0
+offset_bottom = 219.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_po3yl")
+
+[node name="MicPlayer" type="AudioStreamPlayer" parent="CaptureStreamToText"]
+stream = SubResource("AudioStreamMicrophone_rhq81")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="CaptureStreamToText"]
+stream = ExtResource("3_b7mu4")
+autoplay = true
+
+[node name="Panel" type="Panel" parent="CaptureStreamToText"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="CaptureStreamToText/Panel"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "Time: 0s
+Time to process: 0s
+..."
+script = ExtResource("4_r8b1x")
+
+[node name="Label" type="RichTextLabel" parent="CaptureStreamToText"]
+layout_mode = 2
+text = "Add a language model or download one. Then, set it as language_model.
+Takes sample every 5s and transcribes below."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CaptureStreamToText"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="CaptureStreamToText/HBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "Running"
+script = ExtResource("5_lgj5c")
+
+[node name="MicToggle" type="CheckBox" parent="CaptureStreamToText/HBoxContainer"]
+layout_mode = 2
+text = "Mic"
+script = ExtResource("6_wgegh")
+
+[node name="Label" type="Label" parent="CaptureStreamToText/HBoxContainer"]
+layout_mode = 2
+text = "Enable Microphone in Project Settings -> audio/driver/enable_input"
+
+[node name="CaptureStreamToText" type="SpeechToText" parent="CaptureStreamToText"]
+language_model = ExtResource("7_usfh7")
+script = ExtResource("8_ryfhl")
+maximum_sentence_time = 10
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 80.0
+offset_right = 138.0
+offset_bottom = 140.0
+texture_normal = ExtResource("9_7ff53")
+
+[connection signal="toggled" from="CaptureStreamToText/HBoxContainer/MicToggle" to="CaptureStreamToText/HBoxContainer/MicToggle" method="_on_toggled"]

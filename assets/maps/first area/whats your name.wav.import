@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bicltbpwafuuq"
+path="res://.godot/imported/whats your name.wav-03b8a41270a2da4a90a80599e9f4631b.sample"
+
+[deps]
+
+source_file="res://assets/maps/first area/whats your name.wav"
+dest_files=["res://.godot/imported/whats your name.wav-03b8a41270a2da4a90a80599e9f4631b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

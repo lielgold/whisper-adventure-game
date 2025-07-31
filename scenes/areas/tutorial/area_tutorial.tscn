@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqgn6u6v3vrly"]
+
+[ext_resource type="PackedScene" uid="uid://dwjf6db4k7vyf" path="res://scenes/area_manager.tscn" id="1_7ll5n"]
+[ext_resource type="PackedScene" uid="uid://bblbeyme3obew" path="res://scenes/areas/tutorial/outside_house_tutorial.tscn" id="2_b5cj0"]
+
+[node name="area_tutorial" instance=ExtResource("1_7ll5n")]
+max_area_points = 999
+
+[node name="outside_house_tutorial" parent="." index="0" instance=ExtResource("2_b5cj0")]

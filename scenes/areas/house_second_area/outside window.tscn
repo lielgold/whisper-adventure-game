@@ -1,0 +1,524 @@
+[gd_scene load_steps=34 format=3 uid="uid://dyd1dgnyvsy3m"]
+
+[ext_resource type="PackedScene" uid="uid://ih7bydowke4l" path="res://scenes/game_screen.tscn" id="1_lpiw6"]
+[ext_resource type="PackedScene" uid="uid://ccqny4slmrb2k" path="res://scenes/voice_button.tscn" id="2_ja00k"]
+[ext_resource type="Texture2D" uid="uid://dvf7do6j78r82" path="res://assets/maps/outside window/Background.PNG" id="3_osak1"]
+[ext_resource type="Texture2D" uid="uid://d5dnswby5wvv" path="res://assets/maps/outside window/window.PNG" id="4_3sam4"]
+[ext_resource type="Texture2D" uid="uid://b4vnpbyhbo4yr" path="res://assets/maps/outside window/girl_looking_front.png" id="5_36d7e"]
+[ext_resource type="Texture2D" uid="uid://civdh38t7185a" path="res://assets/maps/outside window/sign lie to the .PNG" id="6_cjio1"]
+[ext_resource type="Texture2D" uid="uid://lo6yk4voxvnw" path="res://assets/maps/outside window/bird, closed wings.PNG" id="7_8voqi"]
+[ext_resource type="Texture2D" uid="uid://cux7hy1n460so" path="res://assets/maps/outside window/flower closed.PNG" id="8_wl3nc"]
+[ext_resource type="Script" path="res://scenes/trigger_text.gd" id="9_0qxa2"]
+[ext_resource type="Texture2D" uid="uid://c2cpy5bfqofvw" path="res://assets/maps/house front after tutorial/ball.PNG" id="9_v876q"]
+[ext_resource type="Texture2D" uid="uid://bnpiq60cesef6" path="res://assets/maps/house yard/move to house front.PNG" id="10_1djq5"]
+[ext_resource type="Texture2D" uid="uid://cy0pkxu6vmds2" path="res://assets/maps/outside window/play with the flower.PNG.PNG" id="10_msd80"]
+[ext_resource type="Texture2D" uid="uid://cnqvmmu3fax8u" path="res://assets/maps/outside window/bird open wings.PNG" id="10_vvlja"]
+[ext_resource type="Texture2D" uid="uid://brwbvai840sya" path="res://assets/maps/outside window/soccer goal.PNG" id="10_xdfpy"]
+[ext_resource type="Script" path="res://scenes/change_screen_button.gd" id="11_a3fym"]
+[ext_resource type="Texture2D" uid="uid://boh4opml25g3y" path="res://assets/maps/living room people/woman_front_1_fixed.png" id="15_n4fja"]
+
+[sub_resource type="Animation" id="Animation_dx5i2"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_wgbff"]
+resource_name = "fade_away"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n1bq2"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8j3tv"]
+_data = {
+"RESET": SubResource("Animation_dx5i2"),
+"fade_away": SubResource("Animation_wgbff"),
+"fade_in": SubResource("Animation_n1bq2")
+}
+
+[sub_resource type="Animation" id="Animation_mmq6x"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../move to yard:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../move to yard:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ebrgs"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ball:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../soccer goal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6dw02"]
+_data = {
+"lie to the bird": SubResource("Animation_mmq6x"),
+"play with the bird": SubResource("Animation_ebrgs")
+}
+
+[sub_resource type="Animation" id="Animation_1vil6"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_sw8rt"]
+resource_name = "fade_away"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p2f4u"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_17jhq"]
+_data = {
+"RESET": SubResource("Animation_1vil6"),
+"fade_away": SubResource("Animation_sw8rt"),
+"fade_in": SubResource("Animation_p2f4u")
+}
+
+[sub_resource type="Animation" id="Animation_kskqs"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("play with flower texture:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("play with flower texture:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(0.615572, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_koxys"]
+_data = {
+"play with the flower": SubResource("Animation_kskqs")
+}
+
+[sub_resource type="Animation" id="Animation_vcb5w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bird:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_8voqi")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bird:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(166, 125)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bird:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(196, 604)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ci7nr"]
+_data = {
+"RESET": SubResource("Animation_vcb5w")
+}
+
+[sub_resource type="Animation" id="Animation_38ydd"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bird:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("7_8voqi"), ExtResource("10_vvlja")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bird:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(166, 125), Vector2(371, 212)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bird:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(196, 604), Vector2(108, 526)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_stjr6"]
+_data = {
+"open the bird": SubResource("Animation_38ydd")
+}
+
+[node name="outside window" instance=ExtResource("1_lpiw6")]
+
+[node name="background" type="TextureRect" parent="." index="0"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_osak1")
+
+[node name="wall" parent="." index="1" instance=ExtResource("2_ja00k")]
+layout_mode = 0
+offset_right = 1342.0
+offset_bottom = 542.0
+texture_normal = null
+ignore_texture_size = false
+dictionary_word = "wall"
+show_usable_animation = false
+
+[node name="window" parent="." index="2" instance=ExtResource("2_ja00k")]
+layout_mode = 0
+offset_left = 835.0
+offset_top = 208.0
+offset_right = 1018.0
+offset_bottom = 493.0
+texture_normal = ExtResource("4_3sam4")
+ignore_texture_size = false
+dictionary_word = "window"
+
+[node name="trigger_animations" parent="window" index="2"]
+translation_key = "open the window"
+change_to_texture = "res://assets/images/no_texture.png"
+change_to_new_screen = "res://scenes/areas/house_second_area/living_room_people_v2.tscn"
+
+[node name="girl front" parent="." index="3" instance=ExtResource("2_ja00k")]
+layout_mode = 0
+offset_left = 885.0
+offset_top = 519.0
+offset_right = 1048.0
+offset_bottom = 707.0
+texture_normal = ExtResource("5_36d7e")
+ignore_texture_size = false
+dictionary_word = "I"
+show_usable_animation = false
+
+[node name="sign lie to the" parent="." index="4" instance=ExtResource("2_ja00k")]
+visible = false
+layout_mode = 0
+offset_left = 307.0
+offset_top = 195.0
+offset_right = 550.0
+offset_bottom = 387.0
+texture_normal = ExtResource("6_cjio1")
+dictionary_word = "lie to the bird"
+sound_to_play_on_click = "res://assets/maps/outside window/audio/lie to the bird definition.wav"
+pin_this_word = true
+
+[node name="bird" parent="." index="5" instance=ExtResource("2_ja00k")]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 604.0
+offset_right = 362.0
+offset_bottom = 729.0
+texture_normal = ExtResource("7_8voqi")
+ignore_texture_size = false
+dictionary_word = "bird"
+sound_to_play_on_click = "res://assets/maps/outside window/audio/bird.wav"
+
+[node name="trigger_animations" parent="bird" index="2"]
+translation_key = "open the bird"
+animation_to_play = "local/open the bird"
+change_to_texture = "res://assets/maps/outside window/bird open wings.PNG"
+
+[node name="trigger_talk to the bird" type="Node" parent="bird" index="3"]
+script = ExtResource("9_0qxa2")
+translation_key = "talk to the bird"
+sound_to_play = "res://assets/maps/outside window/audio/talk to the bird.wav"
+play_varied_sound = false
+
+[node name="trigger_lie to the bird" type="Node" parent="bird" index="4"]
+script = ExtResource("9_0qxa2")
+translation_key = "lie to the bird"
+local_animation_to_play = "local/lie to the bird"
+sound_to_play = "res://assets/maps/outside window/audio/lie to the bird.wav"
+play_varied_sound = false
+disable_trigger = true
+
+[node name="trigger_play with the bird" type="Node" parent="bird" index="5"]
+script = ExtResource("9_0qxa2")
+translation_key = "play with the bird"
+local_animation_to_play = "local/play with the bird"
+sound_to_play = "res://assets/maps/outside window/audio/how did you do it.wav"
+play_varied_sound = false
+
+[node name="AnimationPlayer" parent="bird" index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_8j3tv"),
+"local": SubResource("AnimationLibrary_6dw02")
+}
+
+[node name="ball" type="TextureRect" parent="." index="6"]
+visible = false
+layout_mode = 0
+offset_left = 334.0
+offset_top = 688.0
+offset_right = 375.0
+offset_bottom = 732.0
+texture = ExtResource("9_v876q")
+expand_mode = 1
+
+[node name="soccer goal" type="TextureRect" parent="." index="7"]
+visible = false
+layout_mode = 0
+offset_left = 407.0
+offset_top = 649.0
+offset_right = 543.0
+offset_bottom = 739.0
+texture = ExtResource("10_xdfpy")
+
+[node name="flower" parent="." index="8" instance=ExtResource("2_ja00k")]
+layout_mode = 0
+offset_left = 966.0
+offset_top = 20.0
+offset_right = 1505.0
+offset_bottom = 277.0
+texture_normal = ExtResource("8_wl3nc")
+ignore_texture_size = false
+dictionary_word = "flower"
+
+[node name="trigger_lie to the flower" type="Node" parent="flower" index="2"]
+script = ExtResource("9_0qxa2")
+translation_key = "lie to the flower"
+sound_to_play = "res://assets/maps/outside window/audio/I watered you yesterday.wav"
+play_varied_sound = false
+disable_trigger = true
+
+[node name="trigger_talk to the flower" type="Node" parent="flower" index="3"]
+script = ExtResource("9_0qxa2")
+translation_key = "talk to the flower"
+sound_to_play = "res://assets/maps/outside window/audio/you're almost as pretty as me.wav"
+play_varied_sound = false
+
+[node name="trigger_play with the flower" type="Node" parent="flower" index="4"]
+script = ExtResource("9_0qxa2")
+translation_key = "play with the flower"
+local_animation_to_play = "local/play with the flower"
+play_varied_sound = false
+
+[node name="trigger_animations" parent="flower" index="5"]
+translation_key = "open the flower"
+change_to_texture = "res://assets/maps/outside window/flower open.PNG"
+
+[node name="AnimationPlayer" parent="flower" index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_17jhq"),
+"local": SubResource("AnimationLibrary_koxys")
+}
+
+[node name="play with flower texture" type="TextureRect" parent="flower" index="7"]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 539.0
+offset_right = 50.0
+offset_bottom = 590.0
+mouse_filter = 2
+texture = ExtResource("10_msd80")
+
+[node name="move to yard" type="TextureButton" parent="." index="9"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 269.0
+offset_right = 221.0
+offset_bottom = 447.0
+texture_normal = ExtResource("10_1djq5")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_a3fym")
+path_to_new_screen_tscn = "res://scenes/areas/house_second_area/outside_house_after_tutorial.tscn"
+
+[node name="woman" parent="." index="10" instance=ExtResource("2_ja00k")]
+layout_mode = 0
+offset_left = 1140.0
+offset_top = 358.0
+offset_right = 1327.0
+offset_bottom = 1078.0
+texture_normal = ExtResource("15_n4fja")
+ignore_texture_size = false
+flip_h = true
+dictionary_word = "woman"
+show_usable_animation = false
+
+[node name="AnimationPlayer" parent="." index="11"]
+libraries = {
+"": SubResource("AnimationLibrary_ci7nr"),
+"local": SubResource("AnimationLibrary_stjr6")
+}
+
+[connection signal="pressed" from="move to yard" to="move to yard" method="change_to_new_screen"]
+
+[editable path="window"]
+[editable path="bird"]
+[editable path="flower"]

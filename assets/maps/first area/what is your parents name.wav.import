@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bfgwtedkrvxmk"
+path="res://.godot/imported/what is your parents name.wav-8cc45ec81c1c6bb7341b7aaccb11c781.sample"
+
+[deps]
+
+source_file="res://assets/maps/first area/what is your parents name.wav"
+dest_files=["res://.godot/imported/what is your parents name.wav-8cc45ec81c1c6bb7341b7aaccb11c781.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

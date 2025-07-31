@@ -1,0 +1,523 @@
+[gd_scene load_steps=35 format=3 uid="uid://u2c4rvp3ebm6"]
+
+[ext_resource type="Script" path="res://scenes/game_root.gd" id="1_71dev"]
+[ext_resource type="Script" path="res://scripts/audio_to_text.gd" id="2_42col"]
+[ext_resource type="AudioStream" uid="uid://cuybt83bwegoq" path="res://samples/godot_whisper/jfk.wav" id="5_he78r"]
+[ext_resource type="Script" path="res://samples/godot_whisper/test_display.gd" id="6_w48oa"]
+[ext_resource type="Script" path="res://samples/godot_whisper/StartButton.gd" id="7_a8ld0"]
+[ext_resource type="WhisperResource" path="res://addons/godot_whisper/models/gglm-tiny.en.bin" id="7_u6tmq"]
+[ext_resource type="Script" path="res://samples/godot_whisper/enable_mic.gd" id="8_1e1tk"]
+[ext_resource type="PackedScene" uid="uid://bqgn6u6v3vrly" path="res://scenes/areas/tutorial/area_tutorial.tscn" id="9_ft2jd"]
+[ext_resource type="Script" path="res://addons/godot_whisper/capture_stream_to_text.gd" id="10_50p5g"]
+[ext_resource type="Script" path="res://scenes/debug_item_list.gd" id="13_0nfqn"]
+[ext_resource type="Script" path="res://scripts/dictionary_menu.gd" id="14_d1n4l"]
+[ext_resource type="Script" path="res://scenes/speach_bubble_gui.gd" id="15_1mxph"]
+[ext_resource type="Texture2D" uid="uid://ct2x3ig621bj" path="res://assets/images/gui/dictionary/dictionary cleaned.PNG" id="15_gnuxg"]
+[ext_resource type="Texture2D" uid="uid://dv6hcbc11pu8y" path="res://assets/images/gui/sheep.PNG" id="16_a0pfl"]
+[ext_resource type="Texture2D" uid="uid://bdhvfbuj3hfce" path="res://assets/images/gui/speach bubble 2.webp" id="16_h08g5"]
+[ext_resource type="PackedScene" uid="uid://ck2lmp2tjmpxr" path="res://scenes/dictionary_button.tscn" id="17_4dl0p"]
+[ext_resource type="Script" path="res://scripts/speach_bubble_text.gd" id="17_5go2v"]
+[ext_resource type="Texture2D" uid="uid://bi1uni584pmuj" path="res://assets/images/gui/dictionary/notebook cleaned.PNG" id="18_vr2qd"]
+[ext_resource type="Script" path="res://scenes/change_language.gd" id="19_vr4iv"]
+[ext_resource type="Texture2D" uid="uid://dkj05nl0gcwl6" path="res://assets/images/gui/sticky note clean.PNG" id="23_dcimc"]
+[ext_resource type="Script" path="res://scenes/pinned words.gd" id="23_w4o0o"]
+[ext_resource type="Texture2D" uid="uid://dm8wp264d1urx" path="res://assets/images/gui/progression bar/star under 2.PNG" id="25_s7prh"]
+[ext_resource type="Texture2D" uid="uid://ngq0nb2crs2x" path="res://assets/particles/star_white.png" id="27_a6axw"]
+[ext_resource type="Texture2D" uid="uid://cct02obnsyp50" path="res://assets/images/gui/progression bar/star filled 2.PNG" id="27_u2l7k"]
+[ext_resource type="PackedScene" uid="uid://ulaea28weaeo" path="res://scenes/gui/subtitle.tscn" id="28_iahy2"]
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_rhq81"]
+
+[sub_resource type="Animation" id="Animation_b24b0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_llasi"]
+resource_name = "new_word_added"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5),
+"transitions": PackedFloat32Array(0.420448, 0.277392, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.839216, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_co08g"]
+_data = {
+"RESET": SubResource("Animation_b24b0"),
+"new_word_added": SubResource("Animation_llasi")
+}
+
+[sub_resource type="Gradient" id="Gradient_2u3p4"]
+offsets = PackedFloat32Array(0, 0.241758, 0.489011, 0.725275, 0.868132, 1)
+colors = PackedColorArray(0.544976, 0.995816, 2.31028e-06, 1, 0.939319, 0.926138, 0, 1, 0.300747, 0.511616, 0.999496, 1, 1, 0.227451, 0.152941, 1, 1, 0.494144, 0.850088, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_o43en"]
+resource_name = "spin_progress_bar"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 4.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 3.14159, 4.71239, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ysw0"]
+_data = {
+"spin_progress_bar": SubResource("Animation_o43en")
+}
+
+[sub_resource type="Animation" id="Animation_bvbed"]
+resource_name = "fade_in_progress_bar"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gui/progression_bar:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("gui/progression_bar:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1.1),
+"transitions": PackedFloat32Array(0.574349, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l7txo"]
+_data = {
+"fade_in_progress_bar": SubResource("Animation_bvbed")
+}
+
+[node name="GameRoot" type="Node"]
+script = ExtResource("1_71dev")
+
+[node name="audio_to_text" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -337.5
+offset_top = -219.5
+offset_right = 337.5
+offset_bottom = 219.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_42col")
+
+[node name="MicPlayer" type="AudioStreamPlayer" parent="audio_to_text"]
+stream = SubResource("AudioStreamMicrophone_rhq81")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="audio_to_text"]
+stream = ExtResource("5_he78r")
+autoplay = true
+
+[node name="Panel" type="Panel" parent="audio_to_text"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="audio_to_text/Panel"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "Time: 0s
+Time to process: 0s
+..."
+script = ExtResource("6_w48oa")
+
+[node name="Label" type="RichTextLabel" parent="audio_to_text"]
+layout_mode = 2
+text = "Add a language model or download one. Then, set it as language_model.
+Takes sample every 5s and transcribes below."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="audio_to_text"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="audio_to_text/HBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "Running"
+script = ExtResource("7_a8ld0")
+
+[node name="MicToggle" type="CheckBox" parent="audio_to_text/HBoxContainer"]
+layout_mode = 2
+text = "Mic"
+script = ExtResource("8_1e1tk")
+
+[node name="Label" type="Label" parent="audio_to_text/HBoxContainer"]
+layout_mode = 2
+text = "Enable Microphone in Project Settings -> audio/driver/enable_input"
+
+[node name="CaptureStreamToText" type="SpeechToText" parent="audio_to_text"]
+language_model = ExtResource("7_u6tmq")
+script = ExtResource("10_50p5g")
+maximum_sentence_time = 10
+
+[node name="AreaTutorial" parent="." instance=ExtResource("9_ft2jd")]
+mouse_filter = 0
+
+[node name="gui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="open_speech_bubble" type="TextureButton" parent="gui"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 86.0
+offset_bottom = 86.0
+texture_normal = ExtResource("16_h08g5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="gui/open_speech_bubble"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.5
+offset_top = -17.0
+offset_right = 19.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 23
+bbcode_enabled = true
+text = "[center]![/center]"
+
+[node name="speech_bubble" type="Control" parent="gui"]
+visible = false
+layout_mode = 1
+anchors_preset = 0
+offset_right = 264.0
+offset_bottom = 264.0
+script = ExtResource("15_1mxph")
+
+[node name="TextureButton" type="TextureButton" parent="gui/speech_bubble"]
+layout_mode = 0
+offset_right = 271.0
+offset_bottom = 271.0
+texture_normal = ExtResource("16_h08g5")
+
+[node name="Label" type="RichTextLabel" parent="gui/speech_bubble"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -92.0
+offset_right = 95.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "speech by player"
+script = ExtResource("17_5go2v")
+
+[node name="debug menu" type="Control" parent="gui"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ItemList" type="ItemList" parent="gui/debug menu"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 17.0
+offset_right = 723.0
+offset_bottom = 762.0
+script = ExtResource("13_0nfqn")
+
+[node name="change_language" type="ItemList" parent="gui/debug menu"]
+layout_mode = 0
+offset_left = 732.0
+offset_top = 22.0
+offset_right = 898.0
+offset_bottom = 126.0
+script = ExtResource("19_vr4iv")
+
+[node name="dictionary_menu" type="Control" parent="gui"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -470.0
+offset_top = -234.0
+offset_right = 477.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_d1n4l")
+
+[node name="background" type="TextureRect" parent="gui/dictionary_menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_gnuxg")
+
+[node name="dict_image" type="TextureRect" parent="gui/dictionary_menu"]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 28.0
+offset_right = 884.0
+offset_bottom = 424.0
+texture = ExtResource("16_a0pfl")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="gui/dictionary_menu/dict_image"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]  [/center]"
+
+[node name="say_the_word" type="Button" parent="gui/dictionary_menu/dict_image"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="gui/dictionary_menu"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 20.0
+offset_right = 450.0
+offset_bottom = 422.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="gui/dictionary_menu/ScrollContainer"]
+layout_mode = 2
+
+[node name="DictionaryButton" parent="gui/dictionary_menu/ScrollContainer/VBoxContainer" instance=ExtResource("17_4dl0p")]
+layout_mode = 2
+
+[node name="DictionaryButton2" parent="gui/dictionary_menu/ScrollContainer/VBoxContainer" instance=ExtResource("17_4dl0p")]
+layout_mode = 2
+
+[node name="DictionaryButton3" parent="gui/dictionary_menu/ScrollContainer/VBoxContainer" instance=ExtResource("17_4dl0p")]
+layout_mode = 2
+
+[node name="DictionaryButton4" parent="gui/dictionary_menu/ScrollContainer/VBoxContainer" instance=ExtResource("17_4dl0p")]
+layout_mode = 2
+
+[node name="open_dictionary_menu" type="TextureButton" parent="gui"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1220.0
+offset_top = -745.0
+offset_right = 1330.0
+offset_bottom = -655.0
+grow_vertical = 0
+rotation = -0.0436273
+texture_normal = ExtResource("18_vr2qd")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="gui/open_dictionary_menu"]
+libraries = {
+"": SubResource("AnimationLibrary_co08g")
+}
+
+[node name="pinned words" type="Control" parent="gui"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -38.0
+offset_right = 205.0
+offset_bottom = 132.0
+grow_vertical = 0
+script = ExtResource("23_w4o0o")
+
+[node name="TextureRect" type="TextureRect" parent="gui/pinned words"]
+layout_mode = 1
+offset_right = 212.0
+offset_bottom = 173.0
+mouse_filter = 2
+texture = ExtResource("23_dcimc")
+
+[node name="pinned words container" type="VBoxContainer" parent="gui/pinned words"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_right = -14.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0254409
+
+[node name="progression_bar" type="TextureProgressBar" parent="gui"]
+visible = false
+layout_mode = 0
+offset_left = 1106.0
+offset_top = 13.0
+offset_right = 1207.0
+offset_bottom = 109.0
+pivot_offset = Vector2(50, 50)
+max_value = 999.0
+nine_patch_stretch = true
+texture_under = ExtResource("25_s7prh")
+texture_progress = ExtResource("27_u2l7k")
+
+[node name="Button" type="Button" parent="gui/progression_bar"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+disabled = true
+
+[node name="InteractivityParticles2D" type="CPUParticles2D" parent="gui/progression_bar"]
+position = Vector2(48, 52)
+emitting = false
+amount = 6
+speed_scale = 0.5
+texture = ExtResource("27_a6axw")
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector2(0, 300)
+orbit_velocity_min = -1.0
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+color_ramp = SubResource("Gradient_2u3p4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="gui/progression_bar"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -11.0
+offset_right = 46.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[color=black]15/20[/color]"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="gui/progression_bar"]
+libraries = {
+"": SubResource("AnimationLibrary_4ysw0")
+}
+
+[node name="subtitles" type="Control" parent="gui"]
+anchors_preset = 0
+offset_left = 72.0
+offset_top = 526.0
+offset_right = 1293.0
+offset_bottom = 698.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="gui/subtitles"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -133.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="subtitle_text" parent="gui/subtitles/VBoxContainer" instance=ExtResource("28_iahy2")]
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="gui"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_l7txo")
+}
+
+[connection signal="toggled" from="audio_to_text/HBoxContainer/MicToggle" to="audio_to_text/HBoxContainer/MicToggle" method="_on_toggled"]
+[connection signal="pressed" from="gui/open_speech_bubble" to="." method="open_speech_bubble"]
+[connection signal="pressed" from="gui/speech_bubble/TextureButton" to="." method="close_speech_bubble"]
+[connection signal="item_selected" from="gui/debug menu/ItemList" to="gui/debug menu/ItemList" method="_on_item_selected"]
+[connection signal="item_selected" from="gui/debug menu/change_language" to="gui/debug menu/change_language" method="_on_item_selected"]
+[connection signal="pressed" from="gui/dictionary_menu/dict_image/say_the_word" to="gui/dictionary_menu" method="_on_say_the_word_button_pressed"]
+[connection signal="pressed" from="gui/open_dictionary_menu" to="." method="_on_open_dictionary_menu_button_pressed"]
+[connection signal="mouse_entered" from="gui/pinned words" to="gui/pinned words" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="gui/pinned words" to="gui/pinned words" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="gui/progression_bar" to="." method="_on_progression_bar_mouse_entered"]
+[connection signal="mouse_exited" from="gui/progression_bar" to="." method="_on_progression_bar_mouse_exited"]

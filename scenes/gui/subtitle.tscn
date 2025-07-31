@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://ulaea28weaeo"]
+
+[ext_resource type="Texture2D" uid="uid://c6xlddp6hbwf3" path="res://assets/images/gui/character thumbnails/girl_calm.png" id="1_3jf74"]
+[ext_resource type="Script" path="res://scenes/gui/subtitle.gd" id="1_7jaix"]
+
+[node name="subtitle_text" type="RichTextLabel"]
+clip_contents = false
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = -1
+anchor_right = 0.885
+anchor_bottom = 0.091
+offset_right = -129.44
+offset_bottom = 40.112
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[center][font size=40][color=\"ffffff\"][outline_color=\"000000\"][outline_size=9]subtitle text, it can last for more than one line. Here, like this![/outline_size][/outline_color][/color][/font][/center]"
+fit_content = true
+scroll_active = false
+script = ExtResource("1_7jaix")
+
+[node name="character thumbnail" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 19.0
+offset_top = -58.0
+offset_right = 132.0
+offset_bottom = 45.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_3jf74")
+expand_mode = 3

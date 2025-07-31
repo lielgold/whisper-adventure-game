@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dw6q5lx0qwo15"
+path="res://.godot/imported/meow.wav-19d7fea23c3612e0b22b8f9494da4579.sample"
+
+[deps]
+
+source_file="res://assets/maps/house yard/audio/meow.wav"
+dest_files=["res://.godot/imported/meow.wav-19d7fea23c3612e0b22b8f9494da4579.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

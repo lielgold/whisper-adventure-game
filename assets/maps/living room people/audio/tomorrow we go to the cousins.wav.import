@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dryo6rl6hg2wd"
+path="res://.godot/imported/tomorrow we go to the cousins.wav-c675b8b9ff4acff8448ff1cbc980c010.sample"
+
+[deps]
+
+source_file="res://assets/maps/living room people/audio/tomorrow we go to the cousins.wav"
+dest_files=["res://.godot/imported/tomorrow we go to the cousins.wav-c675b8b9ff4acff8448ff1cbc980c010.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

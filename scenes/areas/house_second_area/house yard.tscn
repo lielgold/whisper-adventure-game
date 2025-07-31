@@ -1,0 +1,285 @@
+[gd_scene load_steps=21 format=3 uid="uid://5ulw3k174qda"]
+
+[ext_resource type="PackedScene" uid="uid://ih7bydowke4l" path="res://scenes/game_screen.tscn" id="1_jo51w"]
+[ext_resource type="Texture2D" uid="uid://7a0l66jyti0y" path="res://assets/maps/house yard/sky.PNG" id="2_rvdsp"]
+[ext_resource type="Texture2D" uid="uid://dbo86xn5xydhm" path="res://assets/maps/house yard/yard.PNG" id="3_d2ui3"]
+[ext_resource type="PackedScene" uid="uid://ccqny4slmrb2k" path="res://scenes/voice_button.tscn" id="4_1flvf"]
+[ext_resource type="Texture2D" uid="uid://dpmhjxbvx07iu" path="res://assets/maps/house yard/door closed.PNG" id="5_phg62"]
+[ext_resource type="Texture2D" uid="uid://bry5xilnadney" path="res://assets/maps/house yard/cat.PNG" id="6_u1cea"]
+[ext_resource type="Texture2D" uid="uid://dlaikl4c2klhf" path="res://assets/maps/house yard/sun.PNG" id="7_fy1vt"]
+[ext_resource type="Script" path="res://scenes/trigger_text.gd" id="7_uo7fk"]
+[ext_resource type="Texture2D" uid="uid://cpec4fxypivvb" path="res://assets/maps/house yard/girl_in_the_sun.jpg" id="9_khi6d"]
+[ext_resource type="Texture2D" uid="uid://cyotgog4v3p10" path="res://assets/maps/living room people/woman_back_2_fixed.png" id="10_p562t"]
+
+[sub_resource type="Animation" id="Animation_vcb5w"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ci7nr"]
+_data = {
+"RESET": SubResource("Animation_vcb5w")
+}
+
+[sub_resource type="Animation" id="Animation_vig73"]
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["res://assets/maps/house yard/audio/do the sun magic.wav", false],
+"method": &"play_audio"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i8oxr"]
+_data = {
+"initial animation": SubResource("Animation_vig73")
+}
+
+[sub_resource type="Animation" id="Animation_dx5i2"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_wgbff"]
+resource_name = "fade_away"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n1bq2"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8j3tv"]
+_data = {
+"RESET": SubResource("Animation_dx5i2"),
+"fade_away": SubResource("Animation_wgbff"),
+"fade_in": SubResource("Animation_n1bq2")
+}
+
+[sub_resource type="Animation" id="Animation_j0gg5"]
+length = 5.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../girl in the sun:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../girl in the sun:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.7, 4.8, 5.5),
+"transitions": PackedFloat32Array(0.307786, 1, 1, 0.25),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["res://assets/maps/house yard/audio/who is this girl.wav", false],
+"method": &"play_audio"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l0ywn"]
+_data = {
+"show_girl_in_sun": SubResource("Animation_j0gg5")
+}
+
+[node name="game_screen" instance=ExtResource("1_jo51w")]
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_ci7nr"),
+"local": SubResource("AnimationLibrary_i8oxr")
+}
+autoplay = "local/initial animation"
+
+[node name="sky" type="TextureRect" parent="." index="1"]
+layout_mode = 0
+offset_left = 326.0
+offset_top = -122.0
+offset_right = 1352.0
+offset_bottom = 464.0
+mouse_filter = 2
+texture = ExtResource("2_rvdsp")
+expand_mode = 1
+
+[node name="yard background" type="TextureRect" parent="." index="2"]
+layout_mode = 0
+offset_right = 1344.0
+offset_bottom = 768.0
+mouse_filter = 2
+texture = ExtResource("3_d2ui3")
+
+[node name="door" parent="." index="3" instance=ExtResource("4_1flvf")]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 203.0
+offset_right = 388.0
+offset_bottom = 519.0
+texture_normal = ExtResource("5_phg62")
+ignore_texture_size = false
+dictionary_word = "door"
+
+[node name="trigger_animations" parent="door" index="2"]
+translation_key = "open the door"
+change_to_texture = "res://assets/maps/house yard/door opened.PNG"
+change_to_new_screen = "res://scenes/areas/house_second_area/living_room_people_v2.tscn"
+
+[node name="cat" parent="." index="4" instance=ExtResource("4_1flvf")]
+layout_mode = 0
+offset_left = 1186.0
+offset_top = 484.0
+offset_right = 1331.0
+offset_bottom = 696.0
+texture_normal = ExtResource("6_u1cea")
+ignore_texture_size = false
+dictionary_word = "cat"
+
+[node name="trigger_lie to the cat" type="Node" parent="cat" index="2"]
+script = ExtResource("7_uo7fk")
+translation_key = "lie to the cat"
+sound_to_play = "res://assets/maps/house yard/audio/don't run, I'll be gentle this time.wav"
+disable_trigger = true
+
+[node name="trigger_play with the cat" type="Node" parent="cat" index="3"]
+script = ExtResource("7_uo7fk")
+translation_key = "play with the cat"
+sound_to_play = "res://assets/maps/house yard/audio/meow.wav"
+change_to_texture = "res://assets/maps/house yard/cat running.PNG"
+
+[node name="trigger_open the cat" type="Node" parent="cat" index="4"]
+script = ExtResource("7_uo7fk")
+translation_key = "open the cat"
+sound_to_play = "res://assets/maps/house yard/audio/meow.wav"
+change_to_texture = "res://assets/maps/house yard/cat running.PNG"
+
+[node name="trigger_animations" parent="cat" index="5"]
+translation_key = "talk to the cat"
+sound_to_play = "res://assets/maps/house yard/audio/want to play with me.wav"
+
+[node name="sun" parent="." index="5" instance=ExtResource("4_1flvf")]
+layout_mode = 0
+offset_left = 746.0
+offset_top = 38.0
+offset_right = 917.0
+offset_bottom = 200.0
+texture_normal = ExtResource("7_fy1vt")
+dictionary_word = "sun"
+
+[node name="trigger_lie to the sun" type="Node" parent="sun" index="2"]
+script = ExtResource("7_uo7fk")
+translation_key = "lie to the sun"
+sound_to_play = "res://assets/maps/house yard/audio/nice weather today.wav"
+disable_trigger = true
+
+[node name="trigger_play with the sun" type="Node" parent="sun" index="3"]
+script = ExtResource("7_uo7fk")
+translation_key = "play with the sun"
+sound_to_play = "res://assets/maps/house yard/audio/the sun is too far.wav"
+
+[node name="trigger_open the sun" type="Node" parent="sun" index="4"]
+script = ExtResource("7_uo7fk")
+translation_key = "open the sun"
+local_animation_to_play = "local/show_girl_in_sun"
+sound_to_play = ""
+
+[node name="trigger_animations" parent="sun" index="5"]
+translation_key = "talk to the sun"
+sound_to_play = "res://assets/maps/house yard/audio/nice summer.wav"
+
+[node name="AnimationPlayer" parent="sun" index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_8j3tv"),
+"local": SubResource("AnimationLibrary_l0ywn")
+}
+
+[node name="girl in the sun" type="TextureRect" parent="." index="6"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("9_khi6d")
+
+[node name="woman" parent="." index="7" instance=ExtResource("4_1flvf")]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 376.0
+offset_right = 373.0
+offset_bottom = 1040.0
+texture_normal = ExtResource("10_p562t")
+ignore_texture_size = false
+flip_h = true
+dictionary_word = "woman"
+show_usable_animation = false
+
+[editable path="door"]
+[editable path="cat"]
+[editable path="sun"]

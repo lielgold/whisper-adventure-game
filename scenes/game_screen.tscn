@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ih7bydowke4l"]
+
+[ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_mvnem"]
+
+[sub_resource type="Animation" id="Animation_vcb5w"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ci7nr"]
+_data = {
+"RESET": SubResource("Animation_vcb5w")
+}
+
+[node name="game_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_mvnem")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ci7nr")
+}

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwjf6db4k7vyf"]
+
+[ext_resource type="Script" path="res://scripts/AreaManager.gd" id="1_yg7nm"]
+
+[node name="AreaManager" type="Control"]
+editor_description = "Collection of game screens. Its initial game screen child serves as the entry point to the area."
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_yg7nm")

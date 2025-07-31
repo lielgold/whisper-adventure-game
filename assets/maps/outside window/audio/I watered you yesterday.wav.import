@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cx23a88l6f8qq"
+path="res://.godot/imported/I watered you yesterday.wav-5f9fcc8a6f57c7dd7cc03c2680bc6e8b.sample"
+
+[deps]
+
+source_file="res://assets/maps/outside window/audio/I watered you yesterday.wav"
+dest_files=["res://.godot/imported/I watered you yesterday.wav-5f9fcc8a6f57c7dd7cc03c2680bc6e8b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

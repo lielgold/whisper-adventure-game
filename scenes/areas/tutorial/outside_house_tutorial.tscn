@@ -1,0 +1,829 @@
+[gd_scene load_steps=43 format=3 uid="uid://bblbeyme3obew"]
+
+[ext_resource type="PackedScene" uid="uid://ih7bydowke4l" path="res://scenes/game_screen.tscn" id="1_452ej"]
+[ext_resource type="Texture2D" uid="uid://8fghwnmrr5dm" path="res://assets/maps/areas/tutorial/living_room_background.png" id="2_com2f"]
+[ext_resource type="Texture2D" uid="uid://de770l7ih6us5" path="res://assets/maps/house front/Background fixed.PNG" id="3_2b2rw"]
+[ext_resource type="PackedScene" uid="uid://ccqny4slmrb2k" path="res://scenes/voice_button.tscn" id="4_47ysc"]
+[ext_resource type="Texture2D" uid="uid://bocy013hf0v8l" path="res://assets/maps/house front/sign open the door.webp" id="5_juqkr"]
+[ext_resource type="Texture2D" uid="uid://cewikdujfefcr" path="res://assets/maps/house front/door.webp" id="6_fobpw"]
+[ext_resource type="Texture2D" uid="uid://cmytmc40uvkne" path="res://assets/maps/house front tutorial/mouse clean.PNG" id="7_7jrfv"]
+[ext_resource type="Texture2D" uid="uid://205xbr627fhc" path="res://assets/maps/house front tutorial/ mouse left button.PNG" id="8_wbwn1"]
+[ext_resource type="Texture2D" uid="uid://dfcgksar1yfj4" path="res://assets/maps/house front tutorial/mouse right button.PNG" id="9_jyc74"]
+[ext_resource type="Texture2D" uid="uid://d2r3kfualw67a" path="res://assets/maps/house front tutorial/girl talking mic 1.PNG" id="10_4egnn"]
+[ext_resource type="Texture2D" uid="uid://de8xifxltssa" path="res://assets/maps/house front tutorial/girl talking mic 2.PNG" id="11_bgo5y"]
+[ext_resource type="Texture2D" uid="uid://cbfyogrykcgdf" path="res://assets/maps/house front tutorial/girl talking mic 3.PNG" id="12_2kgev"]
+[ext_resource type="Texture2D" uid="uid://dnbykqkmgfgkq" path="res://assets/maps/house front tutorial/plus sign.PNG" id="13_kj2os"]
+[ext_resource type="Texture2D" uid="uid://bdhvfbuj3hfce" path="res://assets/images/gui/speach bubble 2.webp" id="14_qfh03"]
+[ext_resource type="Texture2D" uid="uid://6itbe3mqd88e" path="res://assets/maps/house front/closed flower.PNG" id="15_hsrva"]
+[ext_resource type="Texture2D" uid="uid://jac3sylri2kc" path="res://assets/maps/house front tutorial/say open the flower bubble.PNG" id="16_ai3dv"]
+[ext_resource type="Texture2D" uid="uid://dhja26a1pqce6" path="res://assets/maps/house front tutorial/open the flower sign.PNG" id="17_fw8d2"]
+[ext_resource type="Script" path="res://scripts/outside house tutorial.gd" id="18_3phov"]
+
+[sub_resource type="Animation" id="Animation_1vil6"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_sw8rt"]
+resource_name = "fade_away"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p2f4u"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_17jhq"]
+_data = {
+"RESET": SubResource("Animation_1vil6"),
+"fade_away": SubResource("Animation_sw8rt"),
+"fade_in": SubResource("Animation_p2f4u")
+}
+
+[sub_resource type="Animation" id="Animation_ml37w"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("../VB_door/mouse right click:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b1fm0"]
+_data = {
+"left click on sign": SubResource("Animation_ml37w")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7q62k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_7jrfv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_7jrfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wbwn1")
+}],
+"loop": true,
+"name": &"mouse left click",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_7jrfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jyc74")
+}],
+"loop": true,
+"name": &"mouse right click",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nb13l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_4egnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bgo5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2kgev")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_8rexy"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_3yrbf"]
+resource_name = "fade_away"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vlsai"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q0nwd"]
+_data = {
+"RESET": SubResource("Animation_8rexy"),
+"fade_away": SubResource("Animation_3yrbf"),
+"fade_in": SubResource("Animation_vlsai")
+}
+
+[sub_resource type="Animation" id="Animation_dqjyp"]
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("../VB_door_sign2/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("fade_in"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("mouse right click:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("girl talking microphone3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("plus sign2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("speech bubble:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath("mouse left click:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = false
+tracks/6/path = NodePath("mouse left click:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g0jra"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("mouse right click:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("girl talking microphone3:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("plus sign2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("speech bubble:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ki48y"]
+_data = {
+"click on door": SubResource("Animation_dqjyp"),
+"open the door": SubResource("Animation_g0jra")
+}
+
+[sub_resource type="Animation" id="Animation_evmb6"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("../VB_door/mouse left click:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("mouse right click:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("girl talking microphone2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("plus sign:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("speech bubble hint:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_p8pog"]
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("../open the flower sign/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("fade_in"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("mouse left click:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nfeto"]
+_data = {
+"open the flower": SubResource("Animation_evmb6"),
+"show open flower sign": SubResource("Animation_p8pog")
+}
+
+[sub_resource type="Animation" id="Animation_8rewp"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("computer mouse2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("../flower/mouse right click:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("../flower/girl talking microphone2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("../flower/plus sign:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("../flower/speech bubble hint:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath("../flower/mouse right click:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sv2pq"]
+_data = {
+"clicked on sign": SubResource("Animation_8rewp")
+}
+
+[sub_resource type="Animation" id="Animation_fki14"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("flower:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_hsrva")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("flower:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("VB_door_sign2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wep38"]
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VB_door_sign2/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("fade_in"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_01as3"]
+resource_name = "open the door"
+length = 1.5
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flower/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("fade_in"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3coob"]
+_data = {
+"RESET": SubResource("Animation_fki14"),
+"make_sign_visible": SubResource("Animation_wep38"),
+"open the door": SubResource("Animation_01as3")
+}
+
+[node name="outside_house_tutorial" instance=ExtResource("1_452ej")]
+
+[node name="inside house" type="TextureRect" parent="." index="0"]
+layout_mode = 0
+offset_left = 414.0
+offset_top = 312.0
+offset_right = 1075.0
+offset_bottom = 690.0
+scale = Vector2(0.809609, 0.809609)
+mouse_filter = 2
+texture = ExtResource("2_com2f")
+expand_mode = 1
+
+[node name="house front" type="TextureRect" parent="." index="1"]
+layout_mode = 0
+offset_right = 1574.0
+offset_bottom = 900.0
+scale = Vector2(0.86263, 0.86263)
+mouse_filter = 2
+texture = ExtResource("3_2b2rw")
+
+[node name="VB_door_sign2" parent="." index="2" instance=ExtResource("4_47ysc")]
+visible = false
+layout_mode = 0
+offset_left = 311.0
+offset_top = 203.0
+offset_right = 511.0
+offset_bottom = 403.0
+texture_normal = ExtResource("5_juqkr")
+dictionary_word = "open the door"
+sound_to_play_on_click = "res://assets/maps/house front/open the door.wav"
+local_animation_clicked_on = "local/left click on sign"
+
+[node name="AnimationPlayer" parent="VB_door_sign2" index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_17jhq"),
+"local": SubResource("AnimationLibrary_b1fm0")
+}
+
+[node name="VB_door" parent="." index="3" instance=ExtResource("4_47ysc")]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 349.0
+offset_right = 760.0
+offset_bottom = 609.0
+texture_normal = ExtResource("6_fobpw")
+dictionary_word = "door"
+sound_to_play_on_click = "res://assets/maps/house front/door.wav"
+local_animation_clicked_on = "local/click on door"
+
+[node name="mouse left click" type="AnimatedSprite2D" parent="VB_door" index="0"]
+visible = false
+position = Vector2(51, 224)
+scale = Vector2(0.190239, 0.190239)
+sprite_frames = SubResource("SpriteFrames_7q62k")
+animation = &"mouse left click"
+autoplay = "mouse left click"
+
+[node name="mouse right click" type="AnimatedSprite2D" parent="VB_door" index="1"]
+visible = false
+position = Vector2(193, -50)
+scale = Vector2(0.126992, 0.126992)
+sprite_frames = SubResource("SpriteFrames_7q62k")
+animation = &"mouse right click"
+autoplay = "mouse right click"
+
+[node name="girl talking microphone3" type="AnimatedSprite2D" parent="VB_door" index="2"]
+visible = false
+position = Vector2(199, 184)
+scale = Vector2(0.227898, 0.227898)
+sprite_frames = SubResource("SpriteFrames_nb13l")
+autoplay = "default"
+frame = 2
+frame_progress = 0.169677
+
+[node name="plus sign2" type="Sprite2D" parent="VB_door" index="3"]
+visible = false
+position = Vector2(199, 37)
+scale = Vector2(0.325092, 0.325092)
+texture = ExtResource("13_kj2os")
+
+[node name="speech bubble" type="TextureRect" parent="VB_door" index="4"]
+visible = false
+layout_mode = 0
+offset_left = 236.0
+offset_top = 66.0
+offset_right = 304.0
+offset_bottom = 134.0
+mouse_filter = 2
+texture = ExtResource("14_qfh03")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VB_door/speech bubble" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 19.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center][font size=20]?[/font][/center]
+"
+
+[node name="trigger_animations" parent="VB_door" index="7"]
+translation_key = "open the door"
+local_animation_to_play = "local/open the door"
+change_to_texture = "res://assets/images/no_texture.png"
+change_to_new_screen = "res://scenes/areas/tutorial/living_room_tutorial_v2.tscn"
+
+[node name="AnimationPlayer" parent="VB_door" index="8"]
+libraries = {
+"": SubResource("AnimationLibrary_q0nwd"),
+"local": SubResource("AnimationLibrary_ki48y")
+}
+
+[node name="flower" parent="." index="4" instance=ExtResource("4_47ysc")]
+layout_mode = 0
+offset_left = 1056.0
+offset_top = 357.0
+offset_right = 1211.0
+offset_bottom = 764.0
+texture_normal = ExtResource("15_hsrva")
+stretch_mode = 3
+dictionary_word = "flower"
+sound_to_play_on_click = "res://assets/maps/house front/flower.wav"
+local_animation_clicked_on = "local/show open flower sign"
+
+[node name="mouse left click" type="AnimatedSprite2D" parent="flower" index="0"]
+position = Vector2(81, 307)
+scale = Vector2(0.200199, 0.200199)
+sprite_frames = SubResource("SpriteFrames_7q62k")
+autoplay = "mouse left click"
+
+[node name="mouse right click" type="AnimatedSprite2D" parent="flower" index="1"]
+visible = false
+position = Vector2(192, 20)
+scale = Vector2(0.139442, 0.139442)
+sprite_frames = SubResource("SpriteFrames_7q62k")
+animation = &"mouse right click"
+autoplay = "mouse right click"
+
+[node name="girl talking microphone2" type="AnimatedSprite2D" parent="flower" index="2"]
+visible = false
+position = Vector2(170, 323)
+scale = Vector2(0.223968, 0.223968)
+sprite_frames = SubResource("SpriteFrames_nb13l")
+autoplay = "default"
+frame = 2
+frame_progress = 0.169677
+
+[node name="plus sign" type="Sprite2D" parent="flower" index="3"]
+visible = false
+position = Vector2(198, 107)
+scale = Vector2(0.237657, 0.237657)
+texture = ExtResource("13_kj2os")
+
+[node name="speech bubble hint" type="Sprite2D" parent="flower" index="4"]
+visible = false
+position = Vector2(191, 211)
+scale = Vector2(0.197211, 0.197211)
+texture = ExtResource("16_ai3dv")
+
+[node name="trigger_animations" parent="flower" index="7"]
+translation_key = "open the flower"
+local_animation_to_play = "local/open the flower"
+change_to_texture = "res://assets/maps/house front/open flower.PNG"
+
+[node name="AnimationPlayer" parent="flower" index="8"]
+libraries = {
+"": SubResource("AnimationLibrary_q0nwd"),
+"local": SubResource("AnimationLibrary_nfeto")
+}
+
+[node name="open the flower sign" parent="." index="5" instance=ExtResource("4_47ysc")]
+visible = false
+layout_mode = 0
+offset_left = 113.0
+offset_top = 423.0
+offset_right = 282.0
+offset_bottom = 593.0
+texture_normal = ExtResource("17_fw8d2")
+dictionary_word = "open the flower"
+sound_to_play_on_click = "res://assets/maps/house front tutorial/audio/open the flower.wav"
+local_animation_clicked_on = "local/clicked on sign"
+pin_this_word = true
+
+[node name="AnimationPlayer" parent="open the flower sign" index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_q0nwd"),
+"local": SubResource("AnimationLibrary_sv2pq")
+}
+
+[node name="computer mouse2" type="AnimatedSprite2D" parent="open the flower sign" index="4"]
+position = Vector2(80, 219)
+scale = Vector2(0.190239, 0.190239)
+sprite_frames = SubResource("SpriteFrames_7q62k")
+animation = &"mouse left click"
+autoplay = "mouse left click"
+
+[node name="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_3coob")
+}
+
+[node name="screen specific code" type="Node" parent="." index="7"]
+script = ExtResource("18_3phov")
+
+[connection signal="animation_finished" from="VB_door_sign2/AnimationPlayer" to="screen specific code" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="VB_door/AnimationPlayer" to="screen specific code" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="flower/AnimationPlayer" to="screen specific code" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="open the flower sign/AnimationPlayer" to="screen specific code" method="_on_animation_player_animation_finished"]
+
+[editable path="VB_door_sign2"]
+[editable path="VB_door"]
+[editable path="flower"]
+[editable path="open the flower sign"]

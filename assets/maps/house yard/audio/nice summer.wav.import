@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c8jkqc7nt3j5l"
+path="res://.godot/imported/nice summer.wav-9e6471a2fdd4c57a21a0624a8c8bd89f.sample"
+
+[deps]
+
+source_file="res://assets/maps/house yard/audio/nice summer.wav"
+dest_files=["res://.godot/imported/nice summer.wav-9e6471a2fdd4c57a21a0624a8c8bd89f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

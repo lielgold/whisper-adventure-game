@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b4wti5bw5jrmk"
+path="res://.godot/imported/who is this girl.wav-3ab35bf95344e26756cd064223a7d893.sample"
+
+[deps]
+
+source_file="res://assets/maps/house yard/audio/who is this girl.wav"
+dest_files=["res://.godot/imported/who is this girl.wav-3ab35bf95344e26756cd064223a7d893.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

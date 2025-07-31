@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://q8mnh0eaq461"
+path="res://.godot/imported/ceiling.wav-3d9989bc5208bd1aab208c604e62e4ed.sample"
+
+[deps]
+
+source_file="res://assets/maps/living room/audio/ceiling.wav"
+dest_files=["res://.godot/imported/ceiling.wav-3d9989bc5208bd1aab208c604e62e4ed.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

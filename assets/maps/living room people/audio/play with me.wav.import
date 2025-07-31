@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c4f6o713p6abu"
+path="res://.godot/imported/play with me.wav-2f19f66248077ac357f2c18198cd401a.sample"
+
+[deps]
+
+source_file="res://assets/maps/living room people/audio/play with me.wav"
+dest_files=["res://.godot/imported/play with me.wav-2f19f66248077ac357f2c18198cd401a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

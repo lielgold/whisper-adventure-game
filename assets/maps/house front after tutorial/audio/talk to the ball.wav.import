@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cnh8s3l88wng6"
+path="res://.godot/imported/talk to the ball.wav-191b5831457dbcbf71653f53fdcd8857.sample"
+
+[deps]
+
+source_file="res://assets/maps/house front after tutorial/audio/talk to the ball.wav"
+dest_files=["res://.godot/imported/talk to the ball.wav-191b5831457dbcbf71653f53fdcd8857.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

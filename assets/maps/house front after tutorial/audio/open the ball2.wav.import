@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ctpthhe662t4p"
+path="res://.godot/imported/open the ball2.wav-19ec2811b839b0a88b23b9c746397867.sample"
+
+[deps]
+
+source_file="res://assets/maps/house front after tutorial/audio/open the ball2.wav"
+dest_files=["res://.godot/imported/open the ball2.wav-19ec2811b839b0a88b23b9c746397867.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,586 @@
+[gd_scene load_steps=23 format=3 uid="uid://crwdtwhk1stg7"]
+
+[ext_resource type="PackedScene" uid="uid://ih7bydowke4l" path="res://scenes/game_screen.tscn" id="1_pan4k"]
+[ext_resource type="Texture2D" uid="uid://cpgx3n322bsvi" path="res://assets/maps/sun/sun background.PNG" id="2_hvj25"]
+[ext_resource type="PackedScene" uid="uid://ccqny4slmrb2k" path="res://scenes/voice_button.tscn" id="3_jsbkv"]
+[ext_resource type="Texture2D" uid="uid://lun0uxb3biqp" path="res://assets/maps/sun/girl circle.PNG" id="3_my45a"]
+[ext_resource type="Texture2D" uid="uid://b5hop564g6755" path="res://assets/maps/sun/sun face.PNG" id="4_4e2m6"]
+[ext_resource type="Texture2D" uid="uid://slk2udttanfb" path="res://assets/maps/sun/orange circle.PNG" id="4_gkb7j"]
+[ext_resource type="Texture2D" uid="uid://dw3mqoaeuxc0d" path="res://assets/maps/sun/cat 1 .PNG" id="5_biwmy"]
+[ext_resource type="Texture2D" uid="uid://ckcoo5hm44q1i" path="res://assets/maps/sun/cat 2.PNG" id="6_o2n6t"]
+[ext_resource type="Script" path="res://scenes/trigger_text.gd" id="8_wipw3"]
+[ext_resource type="Texture2D" uid="uid://drdyqity543eu" path="res://assets/maps/sun/cat paws.PNG" id="9_ds1d2"]
+[ext_resource type="Texture2D" uid="uid://4faf8tbqtqs7" path="res://assets/maps/sun/cat 2 opened.PNG" id="10_a76fe"]
+[ext_resource type="Script" path="res://assets/maps/sun/sun screen specific code.gd" id="12_pywtl"]
+[ext_resource type="Texture2D" uid="uid://b0ktoa6h0fw5i" path="res://assets/maps/sun/cat 1 opened .PNG" id="12_u5n0p"]
+[ext_resource type="Texture2D" uid="uid://by0ix4884djcn" path="res://assets/maps/sun/talk to the cat.PNG" id="13_kbh0r"]
+
+[sub_resource type="Animation" id="Animation_vcb5w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sun inner circle2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cat paws:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cat 2:ignore_texture_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("cat 2:stretch_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("cat 2:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(211, 231)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("sun face:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("cat 1:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("cat 1:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("cat 2:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("cat 2:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("cat paws:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("sun inner circle2:self_modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("sun face:self_modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("cat 1:texture_normal")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_biwmy")]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("talk to the cat:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(314, 904)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ci7nr"]
+_data = {
+"RESET": SubResource("Animation_vcb5w")
+}
+
+[sub_resource type="Animation" id="Animation_30iv4"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cat 2:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_o2n6t")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sun inner circle2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sun face:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("cat 1:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("cat 1:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("cat 2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("cat 2:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("cat paws:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("cat paws:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("sun inner circle2:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("sun face:self_modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("cat 1:texture_normal")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_biwmy")]
+}
+
+[sub_resource type="Animation" id="Animation_ln46o"]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cat 1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.535887, 1),
+"update": 0,
+"values": [Vector2(35, 787), Vector2(41, 429)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cat 2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.406126, 1),
+"update": 0,
+"values": [Vector2(1103, 779), Vector2(1103, 493)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("talk to the cat:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.34151, 1),
+"update": 0,
+"values": [Vector2(314, 904), Vector2(314, 620)]
+}
+
+[sub_resource type="Animation" id="Animation_458bc"]
+resource_name = "open the cat 1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cat 1:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_u5n0p")]
+}
+
+[sub_resource type="Animation" id="Animation_31swd"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cat 2:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_a76fe")]
+}
+
+[sub_resource type="Animation" id="Animation_lcfp0"]
+resource_name = "talk to the cat 1"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cat paws:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7, 3),
+"transitions": PackedFloat32Array(0.267943, 4.92458, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tt4m7"]
+_data = {
+"RESET": SubResource("Animation_30iv4"),
+"initial_move_cats": SubResource("Animation_ln46o"),
+"open the cat 1": SubResource("Animation_458bc"),
+"open the cat 2": SubResource("Animation_31swd"),
+"talk to the cat 1": SubResource("Animation_lcfp0")
+}
+
+[node name="game_screen" instance=ExtResource("1_pan4k")]
+
+[node name="sun inner circle" type="TextureRect" parent="." index="0"]
+layout_mode = 0
+offset_left = 582.0
+offset_top = 296.0
+offset_right = 760.0
+offset_bottom = 477.0
+texture = ExtResource("4_gkb7j")
+expand_mode = 1
+
+[node name="sun background" type="TextureRect" parent="." index="1"]
+layout_mode = 0
+offset_right = 1342.0
+offset_bottom = 766.0
+texture = ExtResource("2_hvj25")
+expand_mode = 1
+
+[node name="girl circle" type="TextureRect" parent="." index="2"]
+layout_mode = 0
+offset_left = 591.0
+offset_top = 303.0
+offset_right = 760.0
+offset_bottom = 474.0
+texture = ExtResource("3_my45a")
+expand_mode = 1
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_ci7nr"),
+"sun": SubResource("AnimationLibrary_tt4m7")
+}
+autoplay = "sun/initial_move_cats"
+
+[node name="sun face" parent="." index="4" instance=ExtResource("3_jsbkv")]
+layout_mode = 0
+offset_left = 591.0
+offset_top = 303.0
+offset_right = 761.0
+offset_bottom = 473.0
+texture_normal = ExtResource("4_4e2m6")
+dictionary_word = "sun"
+sound_to_play_on_click = "res://assets/maps/sun/sun.wav"
+
+[node name="trigger_animations" parent="sun face" index="2"]
+trigger_texts = Array[String](["talk to the sun"])
+translation_key = "talk to the sun"
+sound_to_play = "res://assets/maps/sun/hi.wav"
+play_varied_sound = false
+do_fade_away_animation = true
+
+[node name="sun inner circle2" parent="." index="5" instance=ExtResource("3_jsbkv")]
+layout_mode = 0
+offset_left = 591.0
+offset_top = 303.0
+offset_right = 762.0
+offset_bottom = 474.0
+texture_normal = ExtResource("4_gkb7j")
+dictionary_word = "sun"
+sound_to_play_on_click = "res://assets/maps/sun/sun.wav"
+
+[node name="trigger_animations" parent="sun inner circle2" index="2"]
+trigger_texts = Array[String](["open the sun"])
+translation_key = "open the sun"
+do_fade_away_animation = true
+
+[node name="AnimationPlayer" parent="sun inner circle2" index="3"]
+root_node = NodePath("../../sun inner circle2")
+
+[node name="cat 1" parent="." index="6" instance=ExtResource("3_jsbkv")]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 787.0
+offset_right = 320.0
+offset_bottom = 1072.0
+texture_normal = ExtResource("5_biwmy")
+dictionary_word = "cat"
+sound_to_play_on_click = "res://assets/maps/sun/cat.wav"
+
+[node name="trigger_animations2" type="Node" parent="cat 1" index="2"]
+script = ExtResource("8_wipw3")
+trigger_texts = Array[String](["open the cat"])
+translation_key = "open the cat"
+animation_to_play = "sun/open the cat 1"
+sound_to_play = "res://assets/maps/sun/pop.wav"
+
+[node name="trigger_animations" parent="cat 1" index="3"]
+trigger_texts = Array[String](["talk to the cat"])
+translation_key = "talk to the cat"
+animation_to_play = "sun/talk to the cat 1"
+sound_to_play = "res://assets/maps/sun/first you need to open the sun and then you can talk to it.wav"
+
+[node name="cat 2" parent="." index="7" instance=ExtResource("3_jsbkv")]
+layout_mode = 0
+offset_left = 1103.0
+offset_top = 779.0
+offset_right = 1314.0
+offset_bottom = 1010.0
+texture_normal = ExtResource("6_o2n6t")
+dictionary_word = "cat"
+sound_to_play_on_click = "res://assets/maps/sun/cat.wav"
+
+[node name="trigger_animations2" type="Node" parent="cat 2" index="2"]
+script = ExtResource("8_wipw3")
+trigger_texts = Array[String](["open the cat"])
+translation_key = "open the cat"
+animation_to_play = "sun/open the cat 2"
+sound_to_play = "res://assets/maps/sun/pop.wav"
+
+[node name="trigger_animations" parent="cat 2" index="3"]
+trigger_texts = Array[String](["talk to the cat"])
+translation_key = "talk to the cat"
+sound_to_play = "res://assets/maps/sun/meow meow meow meow , meow meow !.wav"
+
+[node name="cat paws" type="TextureRect" parent="." index="8"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 192.0
+offset_top = 452.0
+offset_right = 299.0
+offset_bottom = 507.0
+texture = ExtResource("9_ds1d2")
+
+[node name="talk to the cat" parent="." index="9" instance=ExtResource("3_jsbkv")]
+layout_mode = 0
+offset_left = 314.0
+offset_top = 904.0
+offset_right = 518.0
+offset_bottom = 1005.0
+texture_normal = ExtResource("13_kbh0r")
+dictionary_word = "talk to the cat"
+sound_to_play_on_click = "res://assets/maps/sun/talk to the cat.wav"
+pin_this_word = true
+
+[node name="screen specific code" type="Node" parent="." index="10"]
+script = ExtResource("12_pywtl")
+path_to_new_area = "res://scenes/areas/house_second_area/area_house.tscn"
+
+[editable path="sun face"]
+[editable path="sun inner circle2"]
+[editable path="cat 1"]
+[editable path="cat 2"]

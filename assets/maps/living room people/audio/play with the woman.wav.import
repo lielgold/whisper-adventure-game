@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dsiu8sw7evhp3"
+path="res://.godot/imported/play with the woman.wav-bfe8476697311f2001715e29d7ec38b7.sample"
+
+[deps]
+
+source_file="res://assets/maps/living room people/audio/play with the woman.wav"
+dest_files=["res://.godot/imported/play with the woman.wav-bfe8476697311f2001715e29d7ec38b7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

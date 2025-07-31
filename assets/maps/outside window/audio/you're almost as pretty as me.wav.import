@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://degjk5kpjb1pv"
+path="res://.godot/imported/you're almost as pretty as me.wav-d3a73a9215a144356bf9741a8ffdea85.sample"
+
+[deps]
+
+source_file="res://assets/maps/outside window/audio/you're almost as pretty as me.wav"
+dest_files=["res://.godot/imported/you're almost as pretty as me.wav-d3a73a9215a144356bf9741a8ffdea85.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

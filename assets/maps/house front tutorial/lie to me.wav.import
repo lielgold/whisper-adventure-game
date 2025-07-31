@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bb2vxb1odipro"
+path="res://.godot/imported/lie to me.wav-e8e1c241827714a0a76a4c4fa36caaef.sample"
+
+[deps]
+
+source_file="res://assets/maps/house front tutorial/lie to me.wav"
+dest_files=["res://.godot/imported/lie to me.wav-e8e1c241827714a0a76a4c4fa36caaef.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

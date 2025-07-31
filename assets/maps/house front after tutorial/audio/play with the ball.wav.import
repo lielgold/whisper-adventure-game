@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dfy0x6826ermv"
+path="res://.godot/imported/play with the ball.wav-8939d7d0c57a7c66a2f27077f2a01f84.sample"
+
+[deps]
+
+source_file="res://assets/maps/house front after tutorial/audio/play with the ball.wav"
+dest_files=["res://.godot/imported/play with the ball.wav-8939d7d0c57a7c66a2f27077f2a01f84.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
